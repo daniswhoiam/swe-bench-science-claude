@@ -1,0 +1,5 @@
+# Python >= 3.12. The run used exactly these versions.
+datacurve-pier==0.3.0
+# Claude Code 2.1.293 is installed inside each agent container by Pier (--agent-kwarg version=2.1.293).
+# harness/environment.py imports scripts.pier_network from the SWE-bench Science dataset
+# repository (HF revision 997408298e8e4d09978b1120b95c4540d1a71bcb); run_fable.py puts it on PYTHONPATH.

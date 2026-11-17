@@ -1,0 +1,28 @@
+# The per-task Pier command, identical for all 119 tasks except <NNN> (task id).
+# Reconstructed from each job's lock.json "invocation"; all 119 reduce to this one template.
+# <run-root> = the project directory on the server; <env-file> = the credential file
+# (outside the project; holds ANTHROPIC_AUTH_TOKEN). Pier masks --agent-env values in
+# lock.json as ****; the value shown here (128000) is the one the driver passes.
+# Started by harness/run_fable.py with cwd=<run-root>/swe-bench-science and a clean
+# environment: HOME, PATH, DOCKER_DEFAULT_PLATFORM=linux/amd64,
+# PYTHONPATH=<run-root>/swe-bench-science:<run-root>.
+
+<run-root>/.venv/bin/pier run \
+  --path <run-root>/swe-bench-science/tasks-selected-all/task_<NNN> \
+  --env docker \
+  --environment-import-path harness.environment:MirroredScienceBenchDocker \
+  --environment-kwarg inference_urls=[] \
+  --agent claude-code \
+  --agent-kwarg version=2.1.293 \
+  --agent-kwarg reasoning_effort=xhigh \
+  --model anthropic/claude-fable-5-2 \
+  --env-file <env-file> \
+  --n-concurrent 1 \
+  --n-attempts 1 \
+  --max-retries 0 \
+  --no-force-build \
+  --no-delete \
+  --yes \
+  --jobs-dir <run-root>/exp/fable-xhigh/jobs \
+  --job-name FXH-<NNN>-s1 \
+  --agent-env CLAUDE_CODE_MAX_OUTPUT_TOKENS=128000

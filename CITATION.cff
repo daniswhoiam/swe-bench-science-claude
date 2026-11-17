@@ -1,0 +1,36 @@
+cff-version: 1.2.0
+message: "If you use these results, please cite this repository and the SWE-bench Science paper."
+title: "Claude Fable 5.2 on SWE-bench Science: an independent run (75/119 Pass@1)"
+type: dataset
+authors:
+  - name: "Daniil Belazovschi"
+repository-code: "https://github.com/daniswhoiam/swe-bench-science-fable-5.2"
+version: "1.0"
+date-released: "<date>"
+license:
+  - CC-BY-4.0
+  - MIT
+keywords:
+  - SWE-bench Science
+  - coding agents
+  - Claude Code
+  - benchmark
+references:
+  - type: article
+    title: "SWE-bench Science: Can Coding Agents Resolve Engineering Tasks in Science?"
+    authors:
+      - family-names: Xu
+        given-names: Zhipeng
+      - family-names: Lu
+        given-names: Jiahao
+      - family-names: Zheng
+        given-names: Yining
+      - family-names: Wang
+        given-names: Yuxin
+      - family-names: Qiu
+        given-names: Xipeng
+    journal: "arXiv preprint arXiv:2608.19799"
+    year: 2026
+    identifiers:
+      - type: other
+        value: "arXiv:2608.19799"

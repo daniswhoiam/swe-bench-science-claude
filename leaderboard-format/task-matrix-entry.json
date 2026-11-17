@@ -1,0 +1,2289 @@
+{
+ "version": 1,
+ "generatedAt": "2026-11-17",
+ "models": [
+  {
+   "id": "fable-5-2-xhigh",
+   "family": "Claude-Fable-5.2",
+   "reasoningDepth": "xhigh",
+   "harness": "Claude Code",
+   "scores": {
+    "public": 99.16,
+    "private": 85.26,
+    "fail2Pass": null,
+    "pass2Pass": null,
+    "overall": 63.03,
+    "issue": null,
+    "expert": null,
+    "engineering": null
+   },
+   "tokens": {
+    "input": 5.305,
+    "output": 0.166
+   }
+  }
+ ],
+ "tasks": [
+  {
+   "publishedTaskId": "001",
+   "scientificKnowledgeAblation": false,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 2,
+      "total": 3
+     },
+     "reward": 0,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "002",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 0,
+      "total": 1
+     },
+     "private": {
+      "passed": 0,
+      "total": 8
+     },
+     "reward": 0,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "003",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 5,
+      "total": 6
+     },
+     "reward": 0,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "004",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 15,
+      "total": 15
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "005",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 1,
+      "total": 4
+     },
+     "reward": 0,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "006",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 11,
+      "total": 13
+     },
+     "reward": 0,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "007",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 6,
+      "total": 6
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "008",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 1,
+      "total": 6
+     },
+     "reward": 0,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "009",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 9,
+      "total": 9
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "010",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 11,
+      "total": 11
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "011",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 3,
+      "total": 5
+     },
+     "reward": 0,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "012",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 9,
+      "total": 10
+     },
+     "reward": 0,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "013",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 5,
+      "total": 5
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "014",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 2,
+      "total": 6
+     },
+     "reward": 0,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "015",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 31,
+      "total": 31
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "016",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 12,
+      "total": 12
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "017",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 12,
+      "total": 12
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "018",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 5,
+      "total": 5
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "019",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 14,
+      "total": 14
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "020",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 12,
+      "total": 12
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "021",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 15,
+      "total": 15
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "022",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 12,
+      "total": 12
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "023",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 8,
+      "total": 8
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "024",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 8,
+      "total": 8
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "025",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 7,
+      "total": 7
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "026",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 9,
+      "total": 9
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "027",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 21,
+      "total": 21
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "028",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 10,
+      "total": 10
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "029",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 29,
+      "total": 29
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "030",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 10,
+      "total": 10
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "031",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 41,
+      "total": 41
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "032",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 6,
+      "total": 6
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "033",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 9,
+      "total": 10
+     },
+     "reward": 0,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "034",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 8,
+      "total": 8
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "035",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 14,
+      "total": 14
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "036",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 9,
+      "total": 9
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "037",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 12,
+      "total": 13
+     },
+     "reward": 0,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "038",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 15,
+      "total": 15
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "039",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 4,
+      "total": 11
+     },
+     "reward": 0,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "040",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 1,
+      "total": 3
+     },
+     "reward": 0,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "041",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 8,
+      "total": 24
+     },
+     "reward": 0,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "042",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 15,
+      "total": 16
+     },
+     "reward": 0,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "043",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 4,
+      "total": 8
+     },
+     "reward": 0,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "044",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 8,
+      "total": 15
+     },
+     "reward": 0,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "045",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 16,
+      "total": 16
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "046",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 6,
+      "total": 10
+     },
+     "reward": 0,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "047",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 7,
+      "total": 7
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "048",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 13,
+      "total": 13
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "049",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 11,
+      "total": 13
+     },
+     "reward": 0,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "050",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 9,
+      "total": 11
+     },
+     "reward": 0,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "051",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 6,
+      "total": 6
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "052",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 15,
+      "total": 16
+     },
+     "reward": 0,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "053",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 6,
+      "total": 6
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "054",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 4,
+      "total": 7
+     },
+     "reward": 0,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "055",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 12,
+      "total": 18
+     },
+     "reward": 0,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "056",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 10,
+      "total": 10
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "057",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 11,
+      "total": 11
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "058",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 9,
+      "total": 9
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "059",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 7,
+      "total": 9
+     },
+     "reward": 0,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "060",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 11,
+      "total": 11
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "061",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 8,
+      "total": 8
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "062",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 17,
+      "total": 17
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "063",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 18,
+      "total": 18
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "064",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 8,
+      "total": 8
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "065",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 7,
+      "total": 7
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "066",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 6,
+      "total": 6
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "067",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 6,
+      "total": 6
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "068",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 3,
+      "total": 3
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "069",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 4,
+      "total": 4
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "070",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 2,
+      "total": 9
+     },
+     "reward": 0,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "071",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 2,
+      "total": 5
+     },
+     "reward": 0,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "072",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 7,
+      "total": 7
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "073",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 6,
+      "total": 6
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "074",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 10,
+      "total": 10
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "075",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 1,
+      "total": 8
+     },
+     "reward": 0,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "076",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 7,
+      "total": 7
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "077",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 13,
+      "total": 13
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "078",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 42,
+      "total": 42
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "079",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 13,
+      "total": 14
+     },
+     "reward": 0,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "080",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 10,
+      "total": 15
+     },
+     "reward": 0,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "081",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 5,
+      "total": 5
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "082",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 1,
+      "total": 7
+     },
+     "reward": 0,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "083",
+   "scientificKnowledgeAblation": false,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 1,
+      "total": 3
+     },
+     "reward": 0,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "084",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 7,
+      "total": 7
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "085",
+   "scientificKnowledgeAblation": false,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 4,
+      "total": 10
+     },
+     "reward": 0,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "086",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 2,
+      "total": 4
+     },
+     "reward": 0,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "087",
+   "scientificKnowledgeAblation": false,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 5,
+      "total": 5
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "088",
+   "scientificKnowledgeAblation": false,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 5,
+      "total": 5
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "089",
+   "scientificKnowledgeAblation": false,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 4,
+      "total": 4
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "090",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 6,
+      "total": 6
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "091",
+   "scientificKnowledgeAblation": false,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 3,
+      "total": 3
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "092",
+   "scientificKnowledgeAblation": false,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 8,
+      "total": 9
+     },
+     "reward": 0,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "093",
+   "scientificKnowledgeAblation": false,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 4,
+      "total": 4
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "094",
+   "scientificKnowledgeAblation": false,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 5,
+      "total": 5
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "095",
+   "scientificKnowledgeAblation": false,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 3,
+      "total": 8
+     },
+     "reward": 0,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "096",
+   "scientificKnowledgeAblation": false,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 5,
+      "total": 8
+     },
+     "reward": 0,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "097",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 7,
+      "total": 7
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "098",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 8,
+      "total": 11
+     },
+     "reward": 0,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "099",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 4,
+      "total": 4
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "100",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 8,
+      "total": 8
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "101",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 10,
+      "total": 10
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "102",
+   "scientificKnowledgeAblation": false,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 3,
+      "total": 4
+     },
+     "reward": 0,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "103",
+   "scientificKnowledgeAblation": false,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 4,
+      "total": 4
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "104",
+   "scientificKnowledgeAblation": false,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 7,
+      "total": 7
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "105",
+   "scientificKnowledgeAblation": false,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 2,
+      "total": 4
+     },
+     "reward": 0,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "106",
+   "scientificKnowledgeAblation": false,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 37,
+      "total": 37
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "107",
+   "scientificKnowledgeAblation": false,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 3,
+      "total": 3
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "108",
+   "scientificKnowledgeAblation": false,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 23,
+      "total": 23
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "109",
+   "scientificKnowledgeAblation": false,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 6,
+      "total": 6
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "110",
+   "scientificKnowledgeAblation": false,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 10,
+      "total": 10
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "111",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 6,
+      "total": 10
+     },
+     "reward": 0,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "112",
+   "scientificKnowledgeAblation": false,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 5,
+      "total": 5
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "113",
+   "scientificKnowledgeAblation": false,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 13,
+      "total": 13
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "114",
+   "scientificKnowledgeAblation": true,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 13,
+      "total": 15
+     },
+     "reward": 0,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "115",
+   "scientificKnowledgeAblation": false,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 93,
+      "total": 97
+     },
+     "reward": 0,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "116",
+   "scientificKnowledgeAblation": false,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 85,
+      "total": 93
+     },
+     "reward": 0,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "117",
+   "scientificKnowledgeAblation": false,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 6,
+      "total": 6
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "118",
+   "scientificKnowledgeAblation": false,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 9,
+      "total": 9
+     },
+     "reward": 1,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  },
+  {
+   "publishedTaskId": "119",
+   "scientificKnowledgeAblation": false,
+   "results": {
+    "fable-5-2-xhigh": {
+     "public": {
+      "passed": 1,
+      "total": 1
+     },
+     "private": {
+      "passed": 9,
+      "total": 10
+     },
+     "reward": 0,
+     "transition": null,
+     "source": "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, xhigh; not audited by the maintainers"
+    }
+   }
+  }
+ ]
+}

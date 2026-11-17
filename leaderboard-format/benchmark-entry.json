@@ -1,0 +1,20 @@
+{
+ "id": "fable-5-2-xhigh",
+ "family": "Claude-Fable-5.2",
+ "reasoningDepth": "xhigh",
+ "harness": "Claude Code",
+ "scores": {
+  "public": 99.16,
+  "private": 85.26,
+  "fail2Pass": null,
+  "pass2Pass": null,
+  "overall": 63.03,
+  "issue": null,
+  "expert": null,
+  "engineering": null
+ },
+ "tokens": {
+  "input": 5.305,
+  "output": 0.166
+ }
+}

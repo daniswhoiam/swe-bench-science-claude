@@ -1,0 +1,107 @@
+{
+ "configuration": {
+  "model": "anthropic/claude-fable-5-2",
+  "effort": "xhigh",
+  "claude_code": "2.1.293",
+  "runner": "datacurve-pier 0.3.0, built-in claude-code agent",
+  "tasks": 119,
+  "attempts_per_task": 1
+ },
+ "pass_at_1": {
+  "passed": 75,
+  "tasks": 119,
+  "percent": 63.03,
+  "wilson95_percent": [
+   54.1,
+   71.2
+  ]
+ },
+ "hard70": {
+  "passed": 29,
+  "tasks": 70,
+  "percent": 41.43
+ },
+ "other49": {
+  "passed": 46,
+  "tasks": 49,
+  "percent": 93.88
+ },
+ "default96": {
+  "passed": 60,
+  "tasks": 96,
+  "percent": 62.5
+ },
+ "restricted23": {
+  "passed": 15,
+  "tasks": 23,
+  "percent": 65.22
+ },
+ "public_macro_percent": 99.16,
+ "private_macro_percent": 85.26,
+ "public_reproduction_passed": 118,
+ "status": {
+  "agent_time_limit": 3,
+  "completed": 115,
+  "verifier_timeout": 1
+ },
+ "agent_time_limit_runs": {
+  "tasks": [
+   "062",
+   "107",
+   "108"
+  ],
+  "passed": 3
+ },
+ "sensitivity_time_limit_runs_as_failures": {
+  "passed": 72,
+  "percent": 60.5
+ },
+ "verifier_timeout_runs": [
+  "002"
+ ],
+ "failures": {
+  "count": 44,
+  "public_reproduction_passes": 43,
+  "in_hard70": 41,
+  "mean_share_private_passed": 0.601
+ },
+ "by_server": {
+  "A": {
+   "passed": 56,
+   "tasks": 92,
+   "percent": 60.87
+  },
+  "B": {
+   "passed": 19,
+   "tasks": 27,
+   "percent": 70.37
+  }
+ },
+ "agent_minutes": {
+  "mean": 38.3,
+  "median": 35.7
+ },
+ "tokens_per_task": {
+  "input_incl_cache_reads_mean_millions": 5.305,
+  "cache_read_share_of_all_input": 0.938,
+  "cache_read_share_mean_per_task": 0.931,
+  "uncached_input_mean_millions": 0.33,
+  "output_mean_millions": 0.166,
+  "thinking_mean_thousands": 126
+ },
+ "list_cost_usd": {
+  "runs_reporting": 116,
+  "total": 488,
+  "mean_per_run": 4.21
+ },
+ "integrity": {
+  "agent_network_isolated_allowlist": 119,
+  "verifier_network_none": 119,
+  "runs_reporting_web_search_requests": 116,
+  "web_search_requests_total": 0,
+  "models_in_usage_reports": [
+   "claude-fable-5-2"
+  ],
+  "token_prefix_hits": 0
+ }
+}
