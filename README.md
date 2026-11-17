@@ -1,6 +1,6 @@
 # Claude Fable 5.2 on SWE-bench Science
 
-An independent, unofficial run of Claude Fable 5.2 on all 119 tasks of [SWE-bench Science](https://github.com/OpenMOSS/SWE-bench-Science), using the benchmark's own harness. It was submitted to the benchmark maintainers for review on <date> (<issue-url>). It is **not** an official leaderboard entry.
+An independent, unofficial run of Claude Fable 5.2 on all 119 tasks of [SWE-bench Science](https://github.com/OpenMOSS/SWE-bench-Science), using the benchmark's own harness. It was submitted to the benchmark maintainers for review on 2026-11-17 (issue on [OpenMOSS/SWE-bench-Science](https://github.com/OpenMOSS/SWE-bench-Science/issues)). It is **not** an official leaderboard entry.
 
 | | Pass@1 | Tasks solved |
 |---|---|---|
@@ -176,9 +176,9 @@ To cite this run, see `CITATION.cff`.
 
 Independent run by Daniil Belazovschi (daniswhoiam). I ran this independently. I am not affiliated with Anthropic or with the SWE-bench Science authors. The model was used through a Claude subscription. The servers were rented by the author.
 
-Write-up: [[blog post link]]. Contact: [GitHub issues on this repository](https://github.com/daniswhoiam/swe-bench-science-fable-5.2/issues).
+Contact: [GitHub issues on this repository](https://github.com/daniswhoiam/swe-bench-science-fable-5.2/issues).
 
 ## Changelog
 
-- v1.0 (<date>): Claude Fable 5.2, xhigh, 119 tasks.
+- v1.0 (2026-11-17): Claude Fable 5.2, xhigh, 119 tasks.
 - Planned: a matched Claude Opus 5.5 xhigh run under the same configuration.
