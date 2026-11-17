@@ -3,7 +3,7 @@
 Result of the private pre-release scanner over every file of this repository's tree (the report itself excluded).
 The scanner and its list of personal strings are kept outside the repository, so that the list is not published.
 
-**Result: 0 findings** in 45 files (1,190,647 bytes).
+**Result: 0 findings** in 45 files (1,190,642 bytes).
 
 | Check | Rule | Findings |
 |---|---|---|

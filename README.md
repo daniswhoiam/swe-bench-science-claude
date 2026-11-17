@@ -1,6 +1,6 @@
 # Claude Fable 5.2 on SWE-bench Science
 
-An independent, unofficial run of Claude Fable 5.2 on all 119 tasks of [SWE-bench Science](https://github.com/OpenMOSS/SWE-bench-Science), using the benchmark's own harness. It was submitted to the benchmark maintainers for review on 2026-11-17 (issue on [OpenMOSS/SWE-bench-Science](https://github.com/OpenMOSS/SWE-bench-Science/issues)). It is **not** an official leaderboard entry.
+An independent, unofficial run of Claude Fable 5.2 on all 119 tasks of [SWE-bench Science](https://github.com/OpenMOSS/SWE-bench-Science), using the benchmark's own harness. It was submitted to the benchmark maintainers for review on 2026-11-17 ([OpenMOSS/SWE-bench-Science#4](https://github.com/OpenMOSS/SWE-bench-Science/issues/4)). It is **not** an official leaderboard entry.
 
 | | Pass@1 | Tasks solved |
 |---|---|---|
