@@ -3,7 +3,7 @@
 Two independent, unofficial runs on all 119 tasks of [SWE-bench Science](https://github.com/OpenMOSS/SWE-bench-Science), using the benchmark's own harness and an unmodified Claude Code:
 
 - **Claude Fable 5.2 at xhigh effort** (v1.0). Submitted to the benchmark maintainers for review on 2026-11-17 ([OpenMOSS/SWE-bench-Science#4](https://github.com/OpenMOSS/SWE-bench-Science/issues/4)).
-- **Claude Opus 5.5 at max effort**, the paper's headline condition, with every other setting at its default (v1.1). Submitted to the maintainers for review on 2026-11-24.
+- **Claude Opus 5.5 at max effort**, the paper's headline condition, with every other setting at its default (v1.1). Submitted to the maintainers for review on 2026-11-24 ([OpenMOSS/SWE-bench-Science#6](https://github.com/OpenMOSS/SWE-bench-Science/issues/6)).
 
 Neither is an official leaderboard entry.
 
