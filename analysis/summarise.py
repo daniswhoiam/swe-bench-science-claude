@@ -1,7 +1,8 @@
-"""Headline aggregates of the run, from results/ alone (no leaderboard data needed).
+"""Headline aggregates of a run, from results/ alone (no leaderboard data needed).
 
-    python -I analysis/summarise.py            # writes results/summary.json and prints it
+    python -I analysis/summarise.py            # Fable 5.2: writes results/summary.json and prints it
     python -I analysis/summarise.py --check    # fails if results/summary.json differs
+    python -I analysis/summarise.py --run opus [--check]   # Opus 5.5: results/opus-5.5-max/summary.json
 
 Conventions:
 - Pass@1 per task = the verifier's reward (every private test passes, and the public
@@ -18,17 +19,23 @@ from collections import Counter
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from common import ALL, HARD70, RESULTS, load_fable, load_task_meta, mean, median, wilson  # noqa: E402
+from common import ALL, HARD70, OPUS_RESULTS, RESULTS, load_fable, load_opus, load_task_meta, mean, median, wilson  # noqa: E402
+
+RUNS = {
+    "fable": dict(results=RESULTS, load=load_fable, model="anthropic/claude-fable-5-2", effort="xhigh"),
+    "opus": dict(results=OPUS_RESULTS, load=load_opus, model="anthropic/claude-opus-5-5", effort="max"),
+}
 
 
 def r2(x: float) -> float:
     return round(x, 2)
 
 
-def build() -> dict:
-    fab = load_fable()
+def build(run: str = "fable") -> dict:
+    cfg = RUNS[run]
+    fab = cfg["load"]()
     meta = load_task_meta()
-    runs = [json.loads(line) for line in (RESULTS / "runs.jsonl").read_text().splitlines()]
+    runs = [json.loads(line) for line in (cfg["results"] / "runs.jsonl").read_text().splitlines()]
     assert len(runs) == 119
     passed = [t for t in ALL if fab[t]["pass"]]
     k = len(passed)
@@ -53,7 +60,7 @@ def build() -> dict:
 
     return {
         "configuration": {
-            "model": "anthropic/claude-fable-5-2", "effort": "xhigh", "claude_code": "2.1.293",
+            "model": cfg["model"], "effort": cfg["effort"], "claude_code": "2.1.293",
             "runner": "datacurve-pier 0.3.0, built-in claude-code agent", "tasks": 119, "attempts_per_task": 1,
         },
         "pass_at_1": {"passed": k, "tasks": 119, "percent": r2(100 * k / 119),
@@ -76,7 +83,7 @@ def build() -> dict:
             "in_hard70": sum(t in HARD70 for t in fails),
             "mean_share_private_passed": round(mean([priv_share[ALL.index(t)] for t in fails]), 3),
         },
-        "by_server": {s: subset(t for t in ALL if fab[t]["server"] == s) for s in ("A", "B")},
+        "by_server": {s: subset(t for t in ALL if fab[t]["server"] == s) for s in sorted({f["server"] for f in fab.values()})},
         "agent_minutes": {"mean": round(mean([f["agent_sec"] / 60 for f in fab.values()]), 1),
                           "median": round(median([f["agent_sec"] / 60 for f in fab.values()]), 1)},
         "tokens_per_task": {
@@ -101,14 +108,15 @@ def build() -> dict:
 
 
 def main() -> int:
-    summary = build()
+    run = sys.argv[sys.argv.index("--run") + 1] if "--run" in sys.argv else "fable"
+    summary = build(run)
     text = json.dumps(summary, indent=1) + "\n"
-    path = RESULTS / "summary.json"
+    path = RUNS[run]["results"] / "summary.json"
     if "--check" in sys.argv:
         if path.read_text() != text:
-            print("results/summary.json differs from a fresh computation", file=sys.stderr)
+            print(f"{path.relative_to(RESULTS.parent)} differs from a fresh computation", file=sys.stderr)
             return 1
-        print("results/summary.json matches")
+        print(f"{path.relative_to(RESULTS.parent)} matches")
         return 0
     path.write_text(text)
     print(text)

@@ -1,15 +1,18 @@
 # leaderboard-format/
 
-This run's per-task results in the schemas of the SWE-bench Science leaderboard site (`swescience/swescience.github.io`, `data/`), so that the maintainers can merge them if they decide to list the result. It is **not** an official entry and has not been audited by the maintainers.
+The per-task results of both runs in the schemas of the SWE-bench Science leaderboard site (`swescience/swescience.github.io`, `data/`), so that the maintainers can merge them if they decide to list them. Neither is an official entry, and neither has been audited by the maintainers.
+
+- Claude Fable 5.2, xhigh (`fable-5-2-xhigh`): the files in this folder. Described below.
+- Claude Opus 5.5, max (`opus-5-5-max`): the same three files in [`opus-5.5-max/`](#opus-55-max-opus-55-max). Described at the end.
 
 | File | Schema on the site | Content |
 |---|---|---|
 | `task-matrix-entry.json` | `data/task-matrix.json` | `{version, generatedAt, models: [our model], tasks: [119 x {publishedTaskId, scientificKnowledgeAblation, results: {fable-5-2-xhigh: {public, private, reward, transition, source}}}]}` |
 | `benchmark-entry.json` | one element of `models` in `data/benchmark.json` | `id`, `family`, `reasoningDepth`, `harness`, `scores`, `tokens` |
 | `hard70-entry.json` | `data/hard70-model-results.json` | `{version, taskCount: 119, modelPasses: {fable-5-2-xhigh: [75 task IDs]}}` |
-| `validate_entry.py` | | re-implements the site's checks for a per-task entry and, after `analysis/fetch_inputs.py`, merges the entry into the site's matrix in memory |
+| `validate_entry.py` | | re-implements the site's checks for a per-task entry and, after `analysis/fetch_inputs.py`, merges the entry into the site's matrix in memory (`--run opus` for the Opus files) |
 
-`legacyTaskId` is left out of the task entries; it is the same mapping for every model and can be taken from the site's file when merging. `generatedAt` is a placeholder until publication.
+`legacyTaskId` is left out of the task entries; it is the same mapping for every model and can be taken from the site's file when merging. `generatedAt` is the release date of each entry.
 
 ## Scores
 
@@ -34,3 +37,25 @@ The site's validator rejects `null` scores, so the entry cannot go in as a pull 
 - **Hard70**: the site's validator needs the full pass list to recompute overall Pass@1, so `hard70-entry.json` lists all 75 passed tasks, not only the 29 Hard70 ones.
 
 Run `python -I leaderboard-format/validate_entry.py` to check all of the above.
+
+## Opus 5.5 (max): `opus-5.5-max/`
+
+The same three files and the same conventions, model id `opus-5-5-max`, family `Claude-Opus-5.5`, `reasoningDepth` `max`.
+
+| Field | Value | How |
+|---|---|---|
+| `overall` | 59.66 | Pass@1: 71/119 tasks with reward 1 |
+| `public` | 100.00 | macro mean over 119 tasks of public tests passed / total (every task's public reproduction passes) |
+| `private` | 85.78 | macro mean over 119 tasks of private tests passed / total |
+| `fail2Pass`, `pass2Pass`, `issue`, `expert`, `engineering` | `null` | as above |
+| `tokens.input` | 12.518 | mean Pier `n_input_tokens` per task, in millions; **includes cache reads** (98% of all input tokens). Uncached input alone: 0.277M per task |
+| `tokens.output` | 0.167 | mean Pier `n_output_tokens` per task, in millions (includes thinking) |
+
+- Every task has a verifier result; no verifier timeout.
+- **032**: as for Fable, our verifier image collects 6 private tests (the leaderboard lists 21); the task passes.
+- **001, 014, 033, 040** hit the 90-minute agent limit and are scored on their workspace state; 001 passes. Scored as failures instead, Pass@1 would be 70/119 = 58.82%.
+- **Token counts for 037 and 081** come from Pier, like all others. In these two runs, background subagents made the session emit several result events, and Pier's counts (and its cost) are lower than Claude Code's final session totals. `results/opus-5.5-max/per-task.csv` reports Claude Code's total as the list cost.
+- **`source`**: "External run by Daniil Belazovschi: Pier 0.3.0, Claude Code 2.1.293, max; not audited by the maintainers".
+- `hard70-entry.json` lists all 71 passed tasks (24 of them in Hard70).
+
+Run `python -I leaderboard-format/validate_entry.py --run opus` to check these files.

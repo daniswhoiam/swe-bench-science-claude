@@ -6,7 +6,8 @@ Pass@1, Hard70 pass list consistent with the matrix) and, if the leaderboard dat
 downloaded (analysis/fetch_inputs.py), merges the entry into a copy of the site's
 task-matrix.json in memory to show it fits. Nothing is written.
 
-    python -I leaderboard-format/validate_entry.py
+    python -I leaderboard-format/validate_entry.py              # Fable 5.2 (xhigh)
+    python -I leaderboard-format/validate_entry.py --run opus   # Opus 5.5 (max), files in opus-5.5-max/
 
 Exit code 0 when every check passes. The site's own validator would still reject the
 entry because Fail2Pass, Pass2Pass and the paradigm scores are null: only the maintainers
@@ -39,6 +40,12 @@ def check(cond: bool, msg: str) -> None:
 
 
 def main() -> int:
+    global MATRIX, HARD70, BENCH, PER_TASK
+    if "--run" in sys.argv and sys.argv[sys.argv.index("--run") + 1] == "opus":
+        sub = HERE / "opus-5.5-max"
+        MATRIX, HARD70, BENCH = sub / "task-matrix-entry.json", sub / "hard70-entry.json", sub / "benchmark-entry.json"
+        PER_TASK = ROOT / "results" / "opus-5.5-max" / "per-task.csv"
+    print(f"checking {MATRIX.relative_to(ROOT)} against {PER_TASK.relative_to(ROOT)}")
     m = json.loads(MATRIX.read_text())
     h = json.loads(HARD70.read_text())
     b = json.loads(BENCH.read_text())
@@ -82,7 +89,7 @@ def main() -> int:
                                        int(p["private_total"]), int(p["pass_at_1"]))
         else:
             agree &= r["reward"] == 0 and r["public"]["passed"] == 0 and r["private"]["passed"] == 0
-    check(agree, "entry agrees with results/per-task.csv (002: 0 of the leaderboard's totals)")
+    check(agree, f"entry agrees with {PER_TASK.relative_to(ROOT)} (a run without a verifier result: 0 of the leaderboard's totals)")
     tok_in = round(sum(int(p["input_tokens"]) for p in per_task.values()) / 119 / 1e6, 3)
     tok_out = round(sum(int(p["output_tokens"]) for p in per_task.values()) / 119 / 1e6, 3)
     check(model["tokens"] == {"input": tok_in, "output": tok_out}, f"tokens = per-task means ({tok_in}M / {tok_out}M)")

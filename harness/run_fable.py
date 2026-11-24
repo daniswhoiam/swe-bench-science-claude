@@ -1,15 +1,20 @@
-"""Driver for the Claude Fable 5.2 xhigh pass (arm FXH): one Pier job per task.
+"""Driver for the two scored passes: one Pier job per task.
 
-This is the driver used for the run, trimmed to the one configuration that was scored.
+  --config fable-xhigh (default)  Claude Fable 5.2, xhigh, output cap 128000, arm FXH
+  --config opus-max                Claude Opus 5.5, max, Claude Code defaults, arm OX
+
+This is the driver used for the runs, trimmed to the two configurations that were scored.
 Each task is its own Pier job (`pier run`, the benchmark's built-in `claude-code` agent),
 started with a clean environment because Pier falls back to the host's ANTHROPIC_* and
 CLAUDE_* variables. Task images are pulled before a task starts and removed after it.
 
     python -m harness.run_fable --bench swe-bench-science --tasks-dir tasks-selected-all \
         --run-dir runs/fable-xhigh --order provenance/run-order.json --concurrency 7
+    python -m harness.run_fable --config opus-max --bench swe-bench-science --tasks-dir tasks-selected-all \
+        --run-dir runs/opus-max --order provenance/opus-5.5-max/run-order.json --concurrency 6
     python -m harness.run_fable ... --dry-run          # print the Pier command for one task
 
-Outputs under --run-dir: jobs/FXH-<task>-s1/ (Pier job), logs/<job>.log (Pier console
+Outputs under --run-dir: jobs/<arm>-<task>-s1/ (Pier job), logs/<job>.log (Pier console
 output), runs.jsonl and runs-summary.csv (records, harness/record.py), order.json.
 Finished jobs are skipped, so the command can be re-run after an interruption.
 
@@ -43,7 +48,13 @@ from pathlib import Path
 
 from harness.record import TOKEN_PREFIX, build_record, csv_row, job_name, write_outputs
 
-# ---- the frozen configuration ----
+# ---- the frozen configurations (selected with --config; the module values below are fable-xhigh) ----
+CONFIGS = {
+    "fable-xhigh": dict(arm="FXH", model="anthropic/claude-fable-5-2", effort="xhigh",
+                        agent_env={"CLAUDE_CODE_MAX_OUTPUT_TOKENS": "128000"}),
+    # no --agent-env: Claude Code 2.1.293 already allows Opus 5.5 128000 output tokens
+    "opus-max": dict(arm="OX", model="anthropic/claude-opus-5-5", effort="max", agent_env={}),
+}
 ARM = "FXH"
 SEED = 1
 MODEL = "anthropic/claude-fable-5-2"
@@ -291,6 +302,7 @@ def run_order(tasks: list[str], order_file: Path | None) -> list[dict]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    parser.add_argument("--config", choices=sorted(CONFIGS), default="fable-xhigh", help="which scored configuration to run")
     parser.add_argument("--bench", type=Path, default=Path("swe-bench-science"), help="the downloaded dataset repository")
     parser.add_argument("--tasks-dir", default="tasks-selected-all", help="materialised tasks under --bench")
     parser.add_argument("--run-dir", type=Path, required=True, help="output folder (jobs/, logs/, runs.jsonl)")
@@ -301,6 +313,9 @@ def main() -> None:
     parser.add_argument("--concurrency", type=int, default=7)
     parser.add_argument("--dry-run", action="store_true", help="print the order and one Pier command, run nothing")
     args = parser.parse_args()
+    global ARM, MODEL, EFFORT, AGENT_ENV
+    cfg = CONFIGS[args.config]
+    ARM, MODEL, EFFORT, AGENT_ENV = cfg["arm"], cfg["model"], cfg["effort"], cfg["agent_env"]
 
     P.bench = args.bench.resolve()
     P.tasks = P.bench / args.tasks_dir

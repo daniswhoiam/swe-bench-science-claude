@@ -1,0 +1,597 @@
+[
+ {
+  "task": "096",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "089",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "004",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "110",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "115",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "080",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "030",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "068",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "048",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "038",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "028",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "086",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "049",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "100",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "036",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "067",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "074",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "020",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "058",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "105",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "034",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "107",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "044",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "001",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "118",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "016",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "052",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "111",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "064",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "050",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "066",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "051",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "083",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "112",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "027",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "040",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "023",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "056",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "013",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "032",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "014",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "042",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "095",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "071",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "005",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "069",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "116",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "085",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "065",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "081",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "002",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "119",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "008",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "092",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "073",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "029",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "018",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "078",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "009",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "003",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "070",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "101",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "043",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "053",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "025",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "077",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "087",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "108",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "046",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "054",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "094",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "022",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "090",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "017",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "076",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "060",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "063",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "039",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "102",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "031",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "055",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "099",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "098",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "012",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "113",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "091",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "104",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "007",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "011",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "093",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "082",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "106",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "026",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "072",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "117",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "079",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "088",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "109",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "047",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "037",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "019",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "033",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "062",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "061",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "006",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "010",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "097",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "024",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "015",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "075",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "084",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "103",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "041",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "059",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "021",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "045",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "035",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "114",
+  "arm": "OX",
+  "seed": 1
+ },
+ {
+  "task": "057",
+  "arm": "OX",
+  "seed": 1
+ }
+]

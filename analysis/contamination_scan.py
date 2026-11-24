@@ -1,4 +1,4 @@
-"""Count-only scan of the Claude Fable 5.2 xhigh agent records for network or download attempts.
+"""Count-only scan of the agent records (Fable 5.2 xhigh, Opus 5.5 max) for network or download attempts.
 
 NOT RUNNABLE FROM THIS REPOSITORY ALONE: it reads the agent records inside the Pier job
 folders, which are not published (see README, "Not included"). It runs against a local copy
@@ -34,7 +34,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 DEFAULT_CSV = HERE / "out" / "contamination-scan.csv"
-JOB_RE = re.compile(r"^FXH-(\d{3})-s1$")
+JOB_RE = re.compile(r"^(?:FXH|OX)-(\d{3})-s1$")  # FXH: Fable 5.2 xhigh; OX: Opus 5.5 max
 
 # ---------------------------------------------------------------------------------------
 # Fixed patterns
@@ -861,7 +861,7 @@ def find_record(trial: Path) -> tuple[str, Path | None]:
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--selftest", action="store_true", help="run synthetic pattern checks and exit")
-    ap.add_argument("--jobs-dir", type=Path, help="folder with the FXH-<task>-s1 job folders (not published)")
+    ap.add_argument("--jobs-dir", type=Path, help="folder with the FXH-<task>-s1 or OX-<task>-s1 job folders (not published)")
     ap.add_argument("--context", action="store_true", help="also print matched snippets")
     ap.add_argument("--csv", type=Path, default=DEFAULT_CSV)
     args = ap.parse_args()

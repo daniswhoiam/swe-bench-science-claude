@@ -1,0 +1,20 @@
+{
+ "id": "opus-5-5-max",
+ "family": "Claude-Opus-5.5",
+ "reasoningDepth": "max",
+ "harness": "Claude Code",
+ "scores": {
+  "public": 100.0,
+  "private": 85.78,
+  "fail2Pass": null,
+  "pass2Pass": null,
+  "overall": 59.66,
+  "issue": null,
+  "expert": null,
+  "engineering": null
+ },
+ "tokens": {
+  "input": 12.518,
+  "output": 0.167
+ }
+}

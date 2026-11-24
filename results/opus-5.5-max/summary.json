@@ -1,0 +1,100 @@
+{
+ "configuration": {
+  "model": "anthropic/claude-opus-5-5",
+  "effort": "max",
+  "claude_code": "2.1.293",
+  "runner": "datacurve-pier 0.3.0, built-in claude-code agent",
+  "tasks": 119,
+  "attempts_per_task": 1
+ },
+ "pass_at_1": {
+  "passed": 71,
+  "tasks": 119,
+  "percent": 59.66,
+  "wilson95_percent": [
+   50.7,
+   68.0
+  ]
+ },
+ "hard70": {
+  "passed": 24,
+  "tasks": 70,
+  "percent": 34.29
+ },
+ "other49": {
+  "passed": 47,
+  "tasks": 49,
+  "percent": 95.92
+ },
+ "default96": {
+  "passed": 57,
+  "tasks": 96,
+  "percent": 59.38
+ },
+ "restricted23": {
+  "passed": 14,
+  "tasks": 23,
+  "percent": 60.87
+ },
+ "public_macro_percent": 100.0,
+ "private_macro_percent": 85.78,
+ "public_reproduction_passed": 119,
+ "status": {
+  "agent_time_limit": 4,
+  "completed": 115
+ },
+ "agent_time_limit_runs": {
+  "tasks": [
+   "001",
+   "014",
+   "033",
+   "040"
+  ],
+  "passed": 1
+ },
+ "sensitivity_time_limit_runs_as_failures": {
+  "passed": 70,
+  "percent": 58.8
+ },
+ "verifier_timeout_runs": [],
+ "failures": {
+  "count": 48,
+  "public_reproduction_passes": 48,
+  "in_hard70": 46,
+  "mean_share_private_passed": 0.647
+ },
+ "by_server": {
+  "C": {
+   "passed": 71,
+   "tasks": 119,
+   "percent": 59.66
+  }
+ },
+ "agent_minutes": {
+  "mean": 34.0,
+  "median": 27.5
+ },
+ "tokens_per_task": {
+  "input_incl_cache_reads_mean_millions": 12.518,
+  "cache_read_share_of_all_input": 0.978,
+  "cache_read_share_mean_per_task": 0.969,
+  "uncached_input_mean_millions": 0.277,
+  "output_mean_millions": 0.167,
+  "thinking_mean_thousands": 117
+ },
+ "list_cost_usd": {
+  "runs_reporting": 115,
+  "total": 927,
+  "mean_per_run": 8.06
+ },
+ "integrity": {
+  "agent_network_isolated_allowlist": 119,
+  "verifier_network_none": 119,
+  "runs_reporting_web_search_requests": 115,
+  "web_search_requests_total": 0,
+  "models_in_usage_reports": [
+   "claude-opus-5-5"
+  ],
+  "token_prefix_hits": 0
+ }
+}

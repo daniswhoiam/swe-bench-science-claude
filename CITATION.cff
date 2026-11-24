@@ -1,12 +1,12 @@
 cff-version: 1.2.0
 message: "If you use these results, please cite this repository and the SWE-bench Science paper."
-title: "Claude Fable 5.2 on SWE-bench Science: an independent run (75/119 Pass@1)"
+title: "Claude Fable 5.2 and Claude Opus 5.5 on SWE-bench Science: independent runs (75/119 and 71/119 Pass@1)"
 type: dataset
 authors:
   - name: "Daniil Belazovschi"
 repository-code: "https://github.com/daniswhoiam/swe-bench-science-fable-5.2"
-version: "1.0"
-date-released: "2026-11-17"
+version: "1.1"
+date-released: "2026-11-24"
 license:
   - CC-BY-4.0
   - MIT

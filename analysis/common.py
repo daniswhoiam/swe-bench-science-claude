@@ -1,7 +1,8 @@
-"""Shared loaders for the analysis of the Claude Fable 5.2 run.
+"""Shared loaders for the analysis of the Claude Fable 5.2 and Claude Opus 5.5 runs.
 
 Inputs:
-- results/per-task.csv (this repository): one row per task, count-level data only.
+- results/per-task.csv (Fable 5.2 xhigh) and results/opus-5.5-max/per-task.csv (Opus 5.5 max):
+  one row per task, count-level data only, same columns.
 - analysis/data/paper-domains.csv: the 20-domain label per task from Table 5 of the paper
   (arXiv 2608.19799, CC BY 4.0); also copied into per-task.csv.
 - The leaderboard's own data (task-matrix.json, benchmark.json, hard70*.json), downloaded
@@ -20,6 +21,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 RESULTS = ROOT / "results"
 PER_TASK = RESULTS / "per-task.csv"
+OPUS_RESULTS = RESULTS / "opus-5.5-max"
+OPUS_PER_TASK = OPUS_RESULTS / "per-task.csv"
 ANALYSIS = ROOT / "analysis"
 OUT = ANALYSIS / "out"
 LOCAL_OUT = OUT / "local"  # git-ignored: tables that contain other configurations' per-task results
@@ -45,9 +48,9 @@ LB_NAMES = {
 LB_ORDER = list(LB_NAMES)
 
 
-def _rows() -> list[dict]:
-    rows = list(csv.DictReader(PER_TASK.open()))
-    assert [r["task_id"] for r in rows] == ALL, "results/per-task.csv must list tasks 001-119 in order"
+def _rows(path: Path = PER_TASK) -> list[dict]:
+    rows = list(csv.DictReader(path.open()))
+    assert [r["task_id"] for r in rows] == ALL, f"{path.relative_to(ROOT)} must list tasks 001-119 in order"
     return rows
 
 
@@ -63,10 +66,16 @@ HARD70 = {r["task_id"] for r in _rows() if r["hard70"] == "True"}
 assert len(HARD70) == 70
 
 
-def load_fable() -> dict[str, dict]:
-    """One flat record per task from results/per-task.csv."""
+def load_opus() -> dict[str, dict]:
+    """One flat record per task from results/opus-5.5-max/per-task.csv (same fields as load_fable)."""
+    assert {r["task_id"] for r in _rows(OPUS_PER_TASK) if r["hard70"] == "True"} == HARD70
+    return load_fable(OPUS_PER_TASK)
+
+
+def load_fable(path: Path = PER_TASK) -> dict[str, dict]:
+    """One flat record per task from results/per-task.csv (or another run's per-task.csv)."""
     out = {}
-    for r in _rows():
+    for r in _rows(path):
         agent_min = _float(r["agent_min"])
         out[r["task_id"]] = {
             "task": r["task_id"],

@@ -1,6 +1,9 @@
 # results/
 
-Per-task results of the 119 scored runs (one attempt per task). Generated from the run records by a whitelist of fields; nothing here is copied from a job folder.
+Per-task results of the scored runs (one attempt per task). Generated from the run records by a whitelist of fields; nothing here is copied from a job folder.
+
+- This folder: Claude Fable 5.2, xhigh (119 runs, v1.0).
+- [`opus-5.5-max/`](opus-5.5-max/): Claude Opus 5.5, max (119 runs, v1.1). The same four files with the same columns and fields; the differences are listed at the end of this page.
 
 | File | Content |
 |---|---|
@@ -61,3 +64,12 @@ Left out on purpose: the job folder path and trial name, the list of files each 
 ## `artefact-checksums.csv`
 
 `task_id`, `run_id`, `artefact` (`model.patch`), `bytes`, `sha256`, from the record builder, which hashed each patch when the run was recorded. They are a commitment: the patches are available to the benchmark maintainers, who can check them against this file. Transcripts are not hashed here.
+
+## `opus-5.5-max/`: differences from the Fable files
+
+- `run_id` is `OX-<task>-s1`: arm `OX` (Opus, max), seed 1.
+- `server` is `C` for every task (i5-12500; see `provenance/environment.md`). `run_order` uses the same order as the Fable pass.
+- `usage.claude_code.model_usage.claude-opus-5-5.maxOutputTokens` reads 128000 in every run that has the field, and no `--agent-env` was passed. In the session files, 56 single responses exceeded 32,000 output tokens (the largest 100,586) in 45 runs, without an API error, so the default cap for Opus 5.5 in Claude Code 2.1.293 is above 32,000.
+- `list_cost_usd` is Claude Code's final session total. For 037 and 081, where background subagents made the session emit several result events, Pier's `usage.pier.cost_usd` and token counts are lower than that total; all other runs agree to the cent. Four runs (001, 014, 033, 040: the 90-minute limit) end without a final report and have no cost.
+- No run is a verifier timeout; every run has public and private counts.
+- `token_prefix_hits` is 0 for all 119.
