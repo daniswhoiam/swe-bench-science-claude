@@ -226,9 +226,9 @@ To cite this run, see `CITATION.cff`.
 
 Independent run by Daniil Belazovschi (daniswhoiam). I ran this independently. I am not affiliated with Anthropic or with the SWE-bench Science authors. The model was used through a Claude subscription. The servers were rented by the author.
 
-Contact: [GitHub issues on this repository](https://github.com/daniswhoiam/swe-bench-science-fable-5.2/issues).
+Contact: [GitHub issues on this repository](https://github.com/daniswhoiam/swe-bench-science-claude/issues).
 
 ## Changelog
 
-- v1.1 (2026-11-24): Claude Opus 5.5, max, 119 tasks, in `opus-5.5-max/` subfolders, with its network scan (`docs/network-scan-opus-5.5-max.md`), comparison script (`analysis/opus_vs_paper.py`) and a new figure (`fig3`). The Opus run was made at max, the paper's headline condition, instead of the xhigh run planned in v1.0. Figure 1 now includes it. `harness/run_fable.py` takes `--config`; `summarise.py`, `validate_entry.py` and `contamination_scan.py` handle both runs. Fable files unchanged, except one correction: the credential variable is `CLAUDE_CODE_OAUTH_TOKEN`, not `ANTHROPIC_AUTH_TOKEN` (`provenance/environment.md`, `provenance/pier-command.txt`).
+- v1.1 (2026-11-24): Claude Opus 5.5, max, 119 tasks, in `opus-5.5-max/` subfolders, with its network scan (`docs/network-scan-opus-5.5-max.md`), comparison script (`analysis/opus_vs_paper.py`) and a new figure (`fig3`). The Opus run was made at max, the paper's headline condition, instead of the xhigh run planned in v1.0. Figure 1 now includes it. `harness/run_fable.py` takes `--config`; `summarise.py`, `validate_entry.py` and `contamination_scan.py` handle both runs. The repository was renamed from `swe-bench-science-fable-5.2` (old links redirect). Fable files unchanged, except one correction: the credential variable is `CLAUDE_CODE_OAUTH_TOKEN`, not `ANTHROPIC_AUTH_TOKEN` (`provenance/environment.md`, `provenance/pier-command.txt`).
 - v1.0 (2026-11-17): Claude Fable 5.2, xhigh, 119 tasks.

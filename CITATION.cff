@@ -4,7 +4,7 @@ title: "Claude Fable 5.2 and Claude Opus 5.5 on SWE-bench Science: independent r
 type: dataset
 authors:
   - name: "Daniil Belazovschi"
-repository-code: "https://github.com/daniswhoiam/swe-bench-science-fable-5.2"
+repository-code: "https://github.com/daniswhoiam/swe-bench-science-claude"
 version: "1.1"
 date-released: "2026-11-24"
 license:

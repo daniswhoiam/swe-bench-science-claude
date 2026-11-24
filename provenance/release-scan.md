@@ -3,7 +3,7 @@
 Result of the private pre-release scanner over every file of this repository's tree, this report included (as written by the previous scan).
 The scanner and its list of personal strings are kept outside the repository, so that the list is not published.
 
-**Result: 0 findings** in 67 files (2,323,570 bytes).
+**Result: 0 findings** in 67 files (2,323,666 bytes).
 
 | Check | Rule | Findings |
 |---|---|---|
@@ -23,7 +23,7 @@ The scanner and its list of personal strings are kept outside the repository, so
 | `limit-text` | usage-limit message text and subscription plan names | 0 |
 | `hidden-test-names` | names of verifier output files, outside the statement that they were never opened | 0 |
 | `personal` | personal identifiers: names, account, machine and server identifiers (16 patterns from a local, unpublished list; case-insensitive) | 0 |
-| `token-hash` | exact match of any token-like string (24+ characters, 4382 checked) against SHA-256 hashes of the real credential | not run: no credential hash supplied |
+| `token-hash` | exact match of any token-like string (24+ characters, 4383 checked) against SHA-256 hashes of the real credential | not run: no credential hash supplied |
 | `instruction-text` | any 12-word sequence shared with the 119 task instructions (18,546 sequences; sequences that are part of a published task title excluded) | 0 |
 | `png-metadata` | text or EXIF chunks in PNG files | 0 |
 | `hygiene-*` | symlinks; files over 1 MB; names such as `.DS_Store`, `__pycache__`, `.claude`, `verifier`, `tests`, `agent`, `model.patch`, `trajectory.json`, `reward.json`, `exception.txt`, `instruction.md` | 0 |
@@ -34,6 +34,7 @@ Allowed matches (expected, reviewed):
 - `email` in `analysis/contamination_scan.py` (2): synthetic self-test URLs (user-name syntax in git URLs)
 - `hidden-test-names` in `README.md` (3): statement that these files were never opened
 - `other-model` in `CITATION.cff` (1): file of the published Opus 5.5 max run (v1.1)
+- `other-model` in `LICENSE-DATA.md` (1): file of the published Opus 5.5 max run (v1.1)
 - `other-model` in `README.md` (37): file of the published Opus 5.5 max run (v1.1)
 - `other-model` in `analysis/README.md` (10): file of the published Opus 5.5 max run (v1.1)
 - `other-model` in `analysis/common.py` (5): file of the published Opus 5.5 max run (v1.1)

@@ -16,7 +16,7 @@ This covers:
 
 The code (`*.py`) is under the MIT licence in `LICENSE`.
 
-Attribution: "Claude Fable 5.2 on SWE-bench Science, independent run by Daniil Belazovschi, <https://github.com/daniswhoiam/swe-bench-science-fable-5.2>, CC BY 4.0".
+Attribution: "Claude Fable 5.2 and Claude Opus 5.5 on SWE-bench Science, independent runs by Daniil Belazovschi, <https://github.com/daniswhoiam/swe-bench-science-claude>, CC BY 4.0".
 
 Third-party material reproduced here keeps its own terms and is not relicensed by this file; see `NOTICE.md`.
 In particular, `analysis/data/paper-domains.csv` and the `paper_domain` column are derived from the SWE-bench Science
