@@ -62,6 +62,23 @@ def _float(s: str):
     return float(s) if s != "" else None
 
 
+# Anthropic API list prices, USD per million tokens (platform.claude.com/docs/en/about-claude/pricing, read
+# 2026-11-24): input, cache write with 5-minute TTL, cache write with 1-hour TTL, cache read, output.
+PRICES = {
+    "claude-fable-5-2": (8.0, 10.0, 16.0, 0.20, 40.0),
+    "claude-opus-5-5": (4.0, 5.0, 8.0, 0.20, 20.0),
+}
+
+
+def list_cost(model: str, usage: dict, share_1h: float) -> float:
+    """List-price cost of a session from Claude Code's model_usage totals (inputTokens, cacheCreationInputTokens,
+    cacheReadInputTokens, outputTokens), with share_1h of the cache writes at the 1-hour price."""
+    p = PRICES[model]
+    cw = usage["cacheCreationInputTokens"]
+    return (usage["inputTokens"] * p[0] + cw * (1 - share_1h) * p[1] + cw * share_1h * p[2]
+            + usage["cacheReadInputTokens"] * p[3] + usage["outputTokens"] * p[4]) / 1e6
+
+
 HARD70 = {r["task_id"] for r in _rows() if r["hard70"] == "True"}
 assert len(HARD70) == 70
 

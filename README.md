@@ -5,7 +5,7 @@ Two independent, unofficial runs on all 119 tasks of [SWE-bench Science](https:/
 - **Claude Fable 5.2 at xhigh effort**, with the output cap raised to 128,000 tokens. Submitted to the benchmark maintainers for review on 2026-11-17 ([OpenMOSS/SWE-bench-Science#4](https://github.com/OpenMOSS/SWE-bench-Science/issues/4)).
 - **Claude Opus 5.5 at max effort**, the paper's headline condition, with every other setting at its default. Submitted to the benchmark maintainers for review on 2026-11-24 ([OpenMOSS/SWE-bench-Science#6](https://github.com/OpenMOSS/SWE-bench-Science/issues/6)).
 
-Neither is an official leaderboard entry.
+Neither is an official leaderboard entry. The repository also holds 344 earlier Opus 5.5 runs at medium, high and max effort, as supplementary data ([below](#opus-55-at-medium-high-and-max-effort-earlier-runs)).
 
 | | Pass@1 | Tasks solved |
 |---|---|---|
@@ -33,14 +33,14 @@ Fail2Pass, Pass2Pass and the Issue/Expert/Engineering columns cannot be computed
 
 ## Contents
 
-The Fable 5.2 files are at the top level of each directory. The Opus 5.5 files have the same names and formats, in an `opus-5.5-max/` subfolder.
+The Fable 5.2 files are at the top level of each directory. The Opus 5.5 files have the same names and formats, in an `opus-5.5-max/` subfolder. The earlier Opus 5.5 runs are in `opus-5.5-effort/` subfolders of `results/`, `provenance/` and `analysis/out/`, per run instead of per task.
 
 - `results/per-task.csv`: one row per task with outcome, public/private pass counts, time, turns, tokens, list cost, patch size and checksum, network mode. The data dictionary is in `results/README.md`.
 - `results/runs.jsonl`: the same runs as structured records (sanitised). `results/summary.json`: headline aggregates.
 - `leaderboard-format/`: the per-task results in the leaderboard's own `task-matrix.json`, `benchmark.json` and `hard70-model-results.json` schemas, plus a validator.
 - `provenance/`: exact command, versions, image digests, per-trial network policy, run order, a dated run log and the pre-release scan.
-- `analysis/`: scripts that reproduce every number in this README. `analysis/fable_vs_paper.py` and `analysis/opus_vs_paper.py` print the comparisons with the leaderboard; `analysis/fable-vs-paper.md` is a longer written analysis of the Fable 5.2 run.
-- `docs/network-scan.md` (Fable 5.2) and `docs/network-scan-opus-5.5-max.md` (Opus 5.5): the count-only scans of the agent records for network or download attempts.
+- `analysis/`: scripts that reproduce every number in this README. `analysis/fable_vs_paper.py` and `analysis/opus_vs_paper.py` print the comparisons with the leaderboard; `analysis/fable-vs-paper.md` is a longer written analysis of the Fable 5.2 run. `analysis/opus_effort.py` analyses the earlier Opus 5.5 runs.
+- `docs/network-scan.md` (Fable 5.2), `docs/network-scan-opus-5.5-max.md` (Opus 5.5) and `docs/network-scan-opus-5.5-effort.md` (the earlier Opus 5.5 runs): the count-only scans of the agent records for network or download attempts.
 - `figures/`: the two figures above and the script that draws them.
 - `harness/`: the driver (`--config fable-xhigh` or `--config opus-max`), the environment class and the record builder used for the runs.
 
@@ -50,7 +50,7 @@ The Fable 5.2 files are at the top level of each directory. The Opus 5.5 files h
 - Hidden-test code or any verifier output beyond pass counts.
 - Agent transcripts and patches.
 
-Some tasks carry restricted licences (GPL family, non-commercial, unclear redistribution rights), and publishing working patches would put benchmark solutions online. The SHA-256 of every patch is listed in `results/artefact-checksums.csv` and `results/opus-5.5-max/artefact-checksums.csv`, and the patches and transcripts are available to the benchmark maintainers for verification.
+Some tasks carry restricted licences (GPL family, non-commercial, unclear redistribution rights), and publishing working patches would put benchmark solutions online. The SHA-256 of every patch is listed in the `artefact-checksums.csv` files in `results/` and its subfolders, and the patches and transcripts are available to the benchmark maintainers for verification.
 
 ## Configuration
 
@@ -62,6 +62,7 @@ Both runs share everything except the rows marked *per run*.
 | Agent | Claude Code 2.1.293, the built-in `claude-code` agent of `datacurve-pier==0.3.0`. The task's `instruction.md` is the only prompt. No extra tools, hooks or instructions |
 | Effort *(per run)* | Fable 5.2: `reasoning_effort=xhigh`. Opus 5.5: `reasoning_effort=max` |
 | Output cap *(per run)* | Fable 5.2: `CLAUDE_CODE_MAX_OUTPUT_TOKENS=128000`. Opus 5.5: not set; Claude Code's default for Opus 5.5 (it reports 128,000) |
+| Context window *(per run)* | Fable 5.2: 200,000 tokens, the window Claude Code 2.1.293 assumes for a model it does not recognise (see [Claude Code version](#claude-code-version)); Claude Code compacted the context to stay within it in 98 of 119 runs (median 2 times). The model's native window is 1M. Opus 5.5: 1,000,000 tokens (native); no compaction |
 | Limits | 5400 s agent, 1800 s verifier, 2 CPUs and 8 GB per container (from each `task.toml`; unchanged) |
 | Network | Agent: `isolated-allowlist`, only `api.anthropic.com`. Verifier: `none`. Checked on every trial |
 | Environment class | the benchmark's `ScienceBenchDocker`, with one change: an Ubuntu mirror for building the egress-proxy image (`harness/environment.py`) |
@@ -78,7 +79,8 @@ The exact per-task commands are in `provenance/pier-command.txt` (Fable 5.2) and
 |---|---|---|---|
 | Effort | max | **xhigh** (see below) | max |
 | Output-token cap | not reported (Claude Code's default depends on the model: 32,000 for Fable 5.2, 128,000 for Opus 5.5 in 2.1.293) | **128,000** | default (128,000) |
-| Claude Code version | not reported (2.1.221 for one leaderboard entry, per the maintainers) | 2.1.293 | 2.1.293 |
+| Claude Code version | not reported (2.1.221 for one leaderboard entry, per the maintainers) | 2.1.293, which predates Fable 5.2 (see below) | 2.1.293 |
+| Context window | not reported | **200,000** (assumed for an unrecognised model; native 1M) | 1,000,000 (native) |
 | Runner | `scripts/run_batch.py` or `pier run` | `pier run` per task through `harness/run_fable.py`, same network policy | `pier run` per task through `harness/run_fable.py`, same network policy |
 | Hardware | not reported | two native x86 servers (above) | one native x86 server (above) |
 | Interrupted sessions | not reported | set aside and rerun from scratch (see [Run integrity](#run-integrity)) | none occurred |
@@ -88,11 +90,20 @@ The exact per-task commands are in `provenance/pier-command.txt` (Fable 5.2) and
 
 **Output cap.** In a Fable 5.2 test run at Claude Code's default cap, a max-effort session ended with an API error when a response exceeded 32,000 output tokens, so the cap was raised to 128,000 for the Fable 5.2 run. Opus 5.5 kept its default: in its session files, 56 single responses exceeded 32,000 output tokens (the largest 100,586) in 45 runs, and none ended in an error. No other agent environment variable was set in either run.
 
+### Claude Code version
+
+Claude Code 2.1.293 (released 2026-10-07) predates Fable 5.2 (2026-11-09), which Claude Code supports from 2.1.321. It ran `claude-fable-5-2` as a model it does not recognise. Two consequences follow, and both are now part of the results:
+
+- **Context window.** Claude Code assumed a 200,000-token window for Fable 5.2 instead of the native 1M, and compacted the context to stay within it (98 of 119 runs, median 2 compactions; column `context_compactions`). Opus 5.5 is a recognised model in this version and ran with its native 1M window, without compaction. This is a difference between the two runs, and its effect on the Fable 5.2 result is not known.
+- **Cost estimate.** Claude Code had no price table for Fable 5.2: its usage report marks the cost basis `unknown`, and its figure ($488 for the run) is about a third of the list price. All list costs in this repository are therefore computed from Claude Code's token counts at Anthropic's list prices (`analysis/common.py`, `PRICES`); for the Opus 5.5 max run this reproduces Claude Code's own figure on every run.
+
+Other effects of an unrecognised model were checked and not found: Fable 5.2 received the same system prompt as Opus 5.5 (its first request is 61 tokens larger on every task), the effort setting reached the model (on the five tasks also run at max effort in a side run, max used 1.1 to 3.2 times the thinking tokens of xhigh), the raised output cap was in effect, and every response came from the requested model with a normal stop reason (no refusals, no fallback model).
+
 ## How scoring works
 
 - Each patch is evaluated by the benchmark's own verifier image and grader in a separate container without network access.
 - A task counts as solved (Pass@1 = 1) when every private test passes. The grader's reward also requires the public reproduction to pass; in both runs the two coincide on all 119 tasks.
-- With one attempt per task, Pass@1 is the mean of 119 binary rewards. The 95% intervals are Wilson intervals treating the 119 tasks as a sample. They cover task sampling only; run-to-run variation was not measured for either model.
+- With one attempt per task, Pass@1 is the mean of 119 binary rewards. The 95% intervals are Wilson intervals treating the 119 tasks as a sample. They cover task sampling only. Run-to-run variation was not measured for the two scored runs; the earlier Opus 5.5 runs measure it at medium effort ([below](#opus-55-at-medium-high-and-max-effort-earlier-runs)).
 - **Time limit.** A run that hits the 90-minute agent limit is scored on its final workspace, as Pier does.
 - **Verifier timeout.** A run whose verifier produces no result counts as a failure. In the leaderboard format it is recorded as 0 of the leaderboard's test totals, the convention the leaderboard uses for an evaluation that produced nothing.
 - **Public and private macro values** follow the paper's definition: the mean over tasks of the share of tests passed.
@@ -132,7 +143,40 @@ These are not matched comparisons. The leaderboard runs were made by the benchma
 
 ### Fable 5.2 and Opus 5.5 compared
 
-The two runs solve 67 tasks in common. Fable 5.2 alone solves 8 and Opus 5.5 alone solves 4 (exact McNemar p = 0.39, not significant); on Hard70 the split is 8 to 3 (p = 0.23). Together they solve 79 of the 119 tasks. The comparison is matched in Claude Code version, task order and benchmark copy, but not in effort (xhigh vs max), output-cap setting, hardware or date.
+The two runs solve 67 tasks in common. Fable 5.2 alone solves 8 and Opus 5.5 alone solves 4 (exact McNemar p = 0.39, not significant); on Hard70 the split is 8 to 3 (p = 0.23). Together they solve 79 of the 119 tasks. The comparison is matched in Claude Code version, task order and benchmark copy, but not in effort (xhigh vs max), output-cap setting, context window (200,000 with compaction vs 1M), hardware or date.
+
+## Opus 5.5 at medium, high and max effort (earlier runs)
+
+Before the two scored runs, Opus 5.5 ran 344 times with the same unmodified Claude Code 2.1.293. These runs were the baseline arm of the author's experiments with harness changes; the changed-harness runs are not published. They are supplementary data, not a submission.
+
+**How they differ from the scored runs.** They ran on an Apple Silicon Mac, with the linux/amd64 task images under emulation and 3 to 8 runs on the machine at once, interleaved with the unpublished runs. Apart from the effort level, everything else matches the Opus 5.5 max run: Claude Code version, Pier, environment class, network policy, 90-minute limit, no `--agent-env`, and the task content. One metadata file differs; see `provenance/opus-5.5-effort/run-log.md`.
+
+| Effort | Runs | Tasks | Passes |
+|---|---|---|---|
+| medium | 308 | all 119 (1 to 4 runs per task) | first run per task: 58/119 = 48.7% (Wilson 95% 39.9-57.6) |
+| high | 18 | 18 | 8/18 |
+| max | 18 | the same 18 | 10/18 |
+
+What they show (`analysis/opus_effort.py`):
+
+- **Run-to-run variation is small at medium effort.** 100 tasks have at least two medium runs: 48 pass in every run, 45 fail in every run, and 7 are mixed (010, 020, 061, 073, 106, 107, 115). Two runs of the same configuration would be expected to disagree on 4.8 of these 100 tasks. The pairs of seeds 1-2, 1-3 and 2-3 disagree on 5, 5 and 3 tasks, with no significant direction (exact McNemar p ≥ 0.25).
+- **Effort matters more than the run.**
+  - On all 119 tasks, the scored max run solves 71 and the first medium run 58. Max alone solves 15 and medium alone 2 (exact McNemar p = 0.0023), and 12 of the net difference of 13 are on Hard70.
+  - Max solves 9 of the 45 tasks that medium never solved in two to four runs.
+  - On the 18 tasks run at every level: medium 7, high 8, max 10.
+- **Max twice, same outcome.** On those 18 tasks, the earlier max run and the scored max run agree on every task (10 passes each), on different machines.
+- **Fable 5.2 and Opus 5.5 disagree more often than two medium runs do.** On the 100 tasks with two or more medium runs, Fable 5.2 (xhigh) and Opus 5.5 (max) disagree on 10, against 4.8 expected between two runs at medium. Variation at xhigh or max was not measured and may be larger, so this is indicative only.
+- **Cost at list prices.**
+
+  | Effort | Total | Median per run |
+  |---|---|---|
+  | medium | $259 (306 runs with a usage report) | $0.65 |
+  | high | $18.59 (18 runs) | $0.82 |
+  | max | $142.63 (18 runs) | $7.32 |
+
+  Times are not comparable with the scored runs because of the emulation.
+
+Files: `results/opus-5.5-effort/` (`per-run.csv`, `per-task.csv`, `runs.jsonl`, `summary.json`, checksums; data dictionary in `results/README.md`), `provenance/opus-5.5-effort/` (per-run provenance, the Pier command per effort level, run log), `analysis/out/opus-5.5-effort/contamination-scan.csv`.
 
 ## Run integrity
 
@@ -156,26 +200,29 @@ Both runs were checked the same way:
 | Usage limit | hit twice; the sessions it cut off, and the runs interrupted when server A was shut down, were discarded and the tasks rerun | never reached; no session was set aside or rerun |
 | Token-prefix hits | 0 in all 119 job folders | 0 in all 119 job folders |
 
+The earlier Opus 5.5 runs were checked the same way (`docs/network-scan-opus-5.5-effort.md`). None used the web tools, and no tool result in any of the 344 runs shows a successful download. 55 `pip download` calls in 53 runs met a blocked network or gave no signal, and 59 runs are flagged (44 of them never read). Token-prefix hits are 0. Every recorded run is published; 10 sessions that never produced a recorded outcome are listed in their run log.
+
 In the Opus 5.5 run, the subscription's usage meter came close to its limit late in the pass, so new task starts were paused for 86 minutes, until the meter had reset and the six running tasks had finished. Running tasks were not interrupted, and the pause was decided on the meter, not on results. After the Opus 5.5 data was copied and checked against the server, the server was wiped, and a search of its filesystem found no file containing the token prefix.
 
 ## Caveats
 
-- One attempt per task for each model. A rerun could move either total by a few tasks.
+- One attempt per task for each model. A rerun could move either total by a few tasks: at medium effort, two Opus 5.5 runs disagree on about 5 in 100 tasks ([below](#opus-55-at-medium-high-and-max-effort-earlier-runs)).
 - Neither run is a matched comparison with the leaderboard (effort, Claude Code version, output cap, hardware).
-- List costs are Claude Code's own estimates at API list prices, not what was paid (a subscription was used). In both runs the per-task table uses Claude Code's total for cost and Pier's counts for tokens.
+- List costs are computed from Claude Code's token counts at Anthropic's API list prices; they are not what was paid (a subscription was used). Token columns in the per-task tables are Pier's counts.
 
 Fable 5.2:
 
+- Claude Code 2.1.293 predates Fable 5.2: a 200,000-token context window with compaction instead of 1M (see [Claude Code version](#claude-code-version)).
 - xhigh rather than the paper's max effort; output cap raised to 128k. Claude Code's usage report lists `maxOutputTokens: 32000` in every run, but that field does not reflect the effective cap: in the 41 runs whose session files were inspected, 18 single responses exceeded 32,000 output tokens (the largest 91,727), which the default cap would have ended with an API error. The raised cap was therefore in effect and was used.
 - Two servers, run 3-4 days apart. The order was random, so the split is not tied to task difficulty (server A 56/92, server B 19/27).
 - Three time-limit runs are scored on workspace state, and one verifier timeout is scored as a failure (see [How scoring works](#how-scoring-works)).
-- List cost $488 in total, $4.21 per run, for the 116 runs that report it. Mean agent time 38.3 minutes per task (median 35.7).
+- List cost $1,594 in total, $13.74 per run, for the 116 runs with a usage report (Claude Code's own estimate, $488, has no price basis for this model). Mean agent time 38.3 minutes per task (median 35.7).
 
 Opus 5.5:
 
 - One server, one pass (23-24 Nov 2026).
 - Four time-limit runs are scored on workspace state (see [How scoring works](#how-scoring-works)).
-- List cost $927 in total, $8.06 per run, for the 115 runs that report it. Mean agent time 34.0 minutes per task (median 27.5). For two runs (037, 081), Pier's cost and token counts are lower than Claude Code's session total, because background subagents made the session emit several result events.
+- List cost $927 in total, $8.06 per run, for the 115 runs with a usage report (equal to Claude Code's own estimate). Mean agent time 34.0 minutes per task (median 27.5). For two runs (037, 081), Pier's cost and token counts are lower than Claude Code's session total, because background subagents made the session emit several result events.
 
 ## Reproduce
 
@@ -244,6 +291,11 @@ Contact: [GitHub issues on this repository](https://github.com/daniswhoiam/swe-b
 
 ## Changelog
 
+- v1.2 (2026-11-24):
+  - **Cost correction.** Fable 5.2's list cost is $1,594 ($13.74 per run), not $488. Claude Code 2.1.293 predates Fable 5.2 and had no price table for it, so its own figure was wrong. All list costs are now computed from the token counts at list prices (`analysis/common.py`). New columns: `claude_code_cost_usd`, `claude_code_cost_basis`, `cache_write_tokens`, `cache_write_1h_share` and `context_compactions`. `summarise.py --check` recomputes the costs.
+  - **Disclosure.** The same version ran Fable 5.2 with a 200,000-token context window and compaction (new section [Claude Code version](#claude-code-version)).
+  - **New supplementary data.** 344 earlier Opus 5.5 runs at medium, high and max (`opus-5.5-effort/` subfolders), with their network scan and `analysis/opus_effort.py`. `contamination_scan.py` takes several job folders and `--run-ids`; its output on the scored runs is unchanged.
+  - Scores and leaderboard-format files are unchanged.
 - v1.1.1 (2026-11-24): documentation only. The README presents both runs side by side, and the comparison table adds the Hard70 and time-limit rows for Fable 5.2 that `analysis/fable_vs_paper.py` already printed, and the Fable 5.2 vs Opus 5.5 Hard70 split that `analysis/opus_vs_paper.py` already printed. The two subset figures are merged into `fig2-subsets.png` (both runs and the leaderboard's top two); `fig3-opus-subsets.png` is removed. Wording in `results/README.md`, `leaderboard-format/README.md`, `analysis/README.md`, `provenance/` and `docs/` follows the same pattern. No data file changed; the subset figure was redrawn.
 - v1.1 (2026-11-24): Claude Opus 5.5, max, 119 tasks, in `opus-5.5-max/` subfolders, with its network scan (`docs/network-scan-opus-5.5-max.md`), comparison script (`analysis/opus_vs_paper.py`) and a new figure (`fig3`). The Opus 5.5 run was made at max, the paper's headline condition, instead of the xhigh run planned in v1.0. Figure 1 now includes it. `harness/run_fable.py` takes `--config`; `summarise.py`, `validate_entry.py` and `contamination_scan.py` handle both runs. The repository was renamed from `swe-bench-science-fable-5.2` (old links redirect). Fable 5.2 files unchanged, except one correction: the credential variable is `CLAUDE_CODE_OAUTH_TOKEN`, not `ANTHROPIC_AUTH_TOKEN` (`provenance/environment.md`, `provenance/pier-command.txt`).
 - v1.0 (2026-11-17): Claude Fable 5.2, xhigh, 119 tasks.

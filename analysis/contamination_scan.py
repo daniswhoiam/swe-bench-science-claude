@@ -1,4 +1,4 @@
-"""Count-only scan of the agent records (Fable 5.2 xhigh, Opus 5.5 max) for network or download attempts.
+"""Count-only scan of the agent records (Fable 5.2 xhigh, Opus 5.5) for network or download attempts.
 
 NOT RUNNABLE FROM THIS REPOSITORY ALONE: it reads the agent records inside the Pier job
 folders, which are not published (see README, "Not included"). It runs against a local copy
@@ -8,18 +8,20 @@ Per trial it reads only task_*/agent/claude-code.txt (stream-JSON), or
 task_*/agent/trajectory.json when that is missing. Nothing under verifier/ or tests/, and no
 exception.txt, is ever opened. Output: one CSV row per run with counts and reason codes only
 (analysis/out/contamination-scan.csv is the output of the run reported in
-docs/network-scan.md).
+docs/network-scan.md; the subfolders of analysis/out/ hold the other runs).
 
 The patterns, the classification and the self-test below are unchanged from the version
 used for that run; they were fixed before any agent record was scanned. Only the input
-handling differs: the job folder is an argument, and the author's internal task grouping
+handling differs: the job folders are arguments, and the author's internal task grouping
 (which records the author was allowed to read) is removed, so every run is treated alike.
+--run-ids adds the job folder name as a first column, for runs with several runs per task.
 --context prints the matched snippets; the published run did not print any for the records
 that were scanned without being read.
 
 Usage:
   python -I analysis/contamination_scan.py --selftest
-  python -I analysis/contamination_scan.py --jobs-dir <run-dir>/jobs [--csv PATH] [--context]
+  python -I analysis/contamination_scan.py --jobs-dir <run-dir>/jobs [<run-dir>/jobs ...] [--run-ids]
+                                           [--csv PATH] [--context]
 """
 from __future__ import annotations
 
@@ -34,7 +36,8 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 DEFAULT_CSV = HERE / "out" / "contamination-scan.csv"
-JOB_RE = re.compile(r"^(?:FXH|OX)-(\d{3})-s1$")  # FXH: Fable 5.2 xhigh; OX: Opus 5.5 max
+# FXH: Fable 5.2 xhigh; OX: Opus 5.5 max; A, AH, AX: the earlier Opus 5.5 runs at medium, high and max.
+JOB_RE = re.compile(r"^(?:FXH-(\d{3})-s1|OX-(\d{3})-s1|(?:A|AH|AX)-(\d{3})-s\d)$")
 
 # ---------------------------------------------------------------------------------------
 # Fixed patterns
@@ -861,7 +864,8 @@ def find_record(trial: Path) -> tuple[str, Path | None]:
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--selftest", action="store_true", help="run synthetic pattern checks and exit")
-    ap.add_argument("--jobs-dir", type=Path, help="folder with the FXH-<task>-s1 or OX-<task>-s1 job folders (not published)")
+    ap.add_argument("--jobs-dir", type=Path, nargs="+", help="folder(s) with the job folders (not published)")
+    ap.add_argument("--run-ids", action="store_true", help="add the job folder name as a first column, run_id")
     ap.add_argument("--context", action="store_true", help="also print matched snippets")
     ap.add_argument("--csv", type=Path, default=DEFAULT_CSV)
     args = ap.parse_args()
@@ -877,11 +881,12 @@ def main() -> int:
     records_used: Counter = Counter()
     snippets: dict[str, list[tuple[str, str]]] = {}
     errors = []
-    for job in sorted(args.jobs_dir.iterdir()):
+    for job in sorted(j for d in args.jobs_dir for j in d.iterdir()):
         m = JOB_RE.match(job.name)
         if not m or not job.is_dir():
             continue
-        task = m.group(1)
+        task = next(g for g in m.groups() if g)
+        label = job.name if args.run_ids else task
         trials = sorted(p for p in job.glob("task_*") if p.is_dir())
         for trial in trials:
             kind, path = find_record(trial)
@@ -897,17 +902,21 @@ def main() -> int:
                         rec = parse_atif(path)
                     c, snips = classify(rec, want_snippets=args.context)
                 except Exception as e:  # never echo content
-                    errors.append((task, type(e).__name__))
-            row = {"task_id": task}
+                    errors.append((label, type(e).__name__))
+            row = {"run_id": job.name} if args.run_ids else {}
+            row["task_id"] = task
             row.update({k: c[k] for k in COVERAGE_COLS if k != "record"})
             row.update({k: c[k] for k in COLS})
             row["flag_reasons"] = "+".join(is_flagged(c))
             rows.append(row)
             if snips:
-                snippets[task] = snips
+                snippets[label] = snips
 
+    if args.run_ids:
+        assert len({r["run_id"] for r in rows}) == len(rows), "a job folder name occurs in two folders"
+        rows.sort(key=lambda r: r["run_id"])
     args.csv.parent.mkdir(parents=True, exist_ok=True)
-    fields = ["task_id"] + [k for k in COVERAGE_COLS if k != "record"] + COLS + ["flag_reasons"]
+    fields = (["run_id"] if args.run_ids else []) + ["task_id"] + [k for k in COVERAGE_COLS if k != "record"] + COLS + ["flag_reasons"]
     with args.csv.open("w", newline="") as fh:
         w = csv.DictWriter(fh, fieldnames=fields, lineterminator="\n")
         w.writeheader()
@@ -924,7 +933,7 @@ def main() -> int:
         s = sum(int(r[k]) for r in rows)
         n = sum(1 for r in rows if int(r[k]) > 0)
         print(f"{k:32s} {s:8d} {n:9d}")
-    flagged = [(r["task_id"], r["flag_reasons"]) for r in rows if r["flag_reasons"]]
+    flagged = [(r.get("run_id", r["task_id"]), r["flag_reasons"]) for r in rows if r["flag_reasons"]]
     print(f"\nflagged runs ({len(flagged)}):")
     for t, why in flagged:
         print(f"  {t}  {why}")

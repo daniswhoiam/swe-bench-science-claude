@@ -1,0 +1,145 @@
+{
+ "runs": {
+  "medium": 308,
+  "high": 18,
+  "max": 18
+ },
+ "medium": {
+  "first_run_pass_at_1": {
+   "passed": 58,
+   "tasks": 119,
+   "pct": 48.7,
+   "wilson95": [
+    39.9,
+    57.6
+   ]
+  },
+  "mean_task_pass_rate_pct": 49.5,
+  "solved_by_any_run": 62,
+  "runs_per_task": {
+   "1": 19,
+   "2": 24,
+   "3": 63,
+   "4": 13
+  },
+  "tasks_with_2plus_runs": {
+   "tasks": 100,
+   "always": 48,
+   "never": 45,
+   "mixed": [
+    "010",
+    "020",
+    "061",
+    "073",
+    "106",
+    "107",
+    "115"
+   ]
+  },
+  "expected_disagreement_between_two_runs": 4.8,
+  "seed_pairs": [
+   {
+    "seeds": [
+     1,
+     2
+    ],
+    "tasks": 99,
+    "passes": [
+     51,
+     54
+    ],
+    "discordant": [
+     1,
+     4
+    ]
+   },
+   {
+    "seeds": [
+     1,
+     3
+    ],
+    "tasks": 77,
+    "passes": [
+     37,
+     36
+    ],
+    "discordant": [
+     3,
+     2
+    ]
+   },
+   {
+    "seeds": [
+     2,
+     3
+    ],
+    "tasks": 76,
+    "passes": [
+     39,
+     36
+    ],
+    "discordant": [
+     3,
+     0
+    ]
+   }
+  ],
+  "time_limit_runs": [
+   "A-033-s1",
+   "A-040-s2",
+   "A-040-s3"
+  ],
+  "list_cost_usd": {
+   "median": 0.65,
+   "mean": 0.85,
+   "runs_reporting": 306
+  }
+ },
+ "eighteen_tasks": {
+  "tasks": [
+   "009",
+   "027",
+   "028",
+   "029",
+   "036",
+   "042",
+   "044",
+   "050",
+   "058",
+   "060",
+   "071",
+   "072",
+   "076",
+   "079",
+   "087",
+   "088",
+   "092",
+   "113"
+  ],
+  "medium_first_run": 7,
+  "high": 8,
+  "max_earlier": 10,
+  "max_full_pass": 10,
+  "fable_xhigh": 12,
+  "max_runs_disagree": []
+ },
+ "vs_opus_max": {
+  "only_other": 15,
+  "only_medium": 2,
+  "solves_medium_never": 9,
+  "fails_medium_always": [
+   "094",
+   "098"
+  ]
+ },
+ "vs_fable_xhigh": {
+  "only_other": 19,
+  "only_medium": 2,
+  "solves_medium_never": 10,
+  "fails_medium_always": [
+   "002",
+   "098"
+  ]
+ },
+ "fable_vs_opus_max_disagree_on_multi_tasks": 10
+}

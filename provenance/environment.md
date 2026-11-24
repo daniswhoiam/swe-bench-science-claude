@@ -7,7 +7,7 @@ Two scored passes, identical except for the rows marked *per run*: Claude Fable 
 | Item | Value |
 |---|---|
 | Runner | `datacurve-pier==0.3.0` (the benchmark's harness), `pier run`, one job per task (`provenance/pier-command.txt`, `provenance/opus-5.5-max/pier-command.txt`) |
-| Agent | Pier's built-in `claude-code` agent, Claude Code **2.1.293** installed in each agent container (`--agent-kwarg version=2.1.293`) |
+| Agent | Pier's built-in `claude-code` agent, Claude Code **2.1.293** installed in each agent container (`--agent-kwarg version=2.1.293`). This version predates Fable 5.2 (supported from 2.1.321) and runs it as an unrecognised model: 200,000-token context window with compaction, no price table (README, "Claude Code version") |
 | Model *(per run)* | Fable 5.2: `anthropic/claude-fable-5-2`; Claude Code reported `claude-fable-5-2` in all 119 runs and no other model in its 116 usage reports. Opus 5.5: `anthropic/claude-opus-5-5`; reported as `claude-opus-5-5` in all 119 runs and no other model in its 115 usage reports |
 | Effort *(per run)* | Fable 5.2: `--agent-kwarg reasoning_effort=xhigh`. Opus 5.5: `--agent-kwarg reasoning_effort=max` |
 | Agent environment *(per run)* | Fable 5.2: `CLAUDE_CODE_MAX_OUTPUT_TOKENS=128000` (`--agent-env`; Pier masks the value as `****` in its job files). Opus 5.5: none; Claude Code's own defaults (it reports `maxOutputTokens: 128000` for `claude-opus-5-5`) |
@@ -43,5 +43,17 @@ All three servers were rented bare-metal machines, native linux/amd64 (the task 
 | Passed | 56/92 | 19/27 | 71/119 |
 
 Before each pass, the same smoke task was run on each server at medium effort to check the setup; those smoke runs are not part of either result.
+
+## Earlier Opus 5.5 runs (supplementary)
+
+The 344 runs in `results/opus-5.5-effort/` used the same software as the scored runs: Pier 0.3.0, Claude Code 2.1.293, the same environment class and network policy, and the same dataset revision. Only the machine, the effort level and the driver differ:
+
+| Item | Value |
+|---|---|
+| Machine | Apple Silicon Mac, 10 CPUs and 18.8 GB memory available to Docker, Docker Desktop 29.8.0. `DOCKER_DEFAULT_PLATFORM=linux/amd64`: the task images ran under emulation |
+| Effort | `reasoning_effort=medium` (arm `A`), `high` (`AH`) or `max` (`AX`). No `--agent-env` |
+| Driver | the author's experiment driver (not published), one `pier run` per run (`provenance/opus-5.5-effort/pier-command.txt`) |
+| Runs at once | 3 to 8 per batch (median at a run's start), together with the unpublished arms |
+| Dates | 11-12, 16 and 24 Nov 2026 (`provenance/opus-5.5-effort/run-log.md`) |
 
 `per-task.csv` (`server`) and `per-task-provenance.jsonl` give the server per task. The run order is random and the same for both passes (`run-order.json`, seed 20261111), so the split between servers A and B is not tied to task difficulty.

@@ -1,6 +1,6 @@
 # analysis/
 
-Scripts that reproduce every number in the README and in `fable-vs-paper.md` (the written analysis of the Fable 5.2 run), from `results/` (Fable 5.2), `results/opus-5.5-max/` (Opus 5.5) and the leaderboard's own data. Run them from the repository root. Python 3.12+, standard library only, except `paradigm_bounds.py` (numpy, scipy >= 1.9) and `figures/make_figures.py` (matplotlib).
+Scripts that reproduce every number in the README and in `fable-vs-paper.md` (the written analysis of the Fable 5.2 run), from `results/` (Fable 5.2), `results/opus-5.5-max/` (Opus 5.5), `results/opus-5.5-effort/` (the earlier Opus 5.5 runs) and the leaderboard's own data. Run them from the repository root. Python 3.12+, standard library only, except `paradigm_bounds.py` (numpy, scipy >= 1.9) and `figures/make_figures.py` (matplotlib).
 
 ```bash
 python -I analysis/fetch_inputs.py      # 1. leaderboard data, pinned to site commit f16153e and hash-checked
@@ -8,6 +8,7 @@ python -I analysis/summarise.py --check # 2. Fable 5.2: results/summary.json (no
 python -I analysis/summarise.py --run opus --check   #    Opus 5.5: results/opus-5.5-max/summary.json
 python -I analysis/fable_vs_paper.py    # 3. Fable 5.2 against the leaderboard (all sections)
 python -I analysis/opus_vs_paper.py     #    Opus 5.5 against the leaderboard and against Fable 5.2
+python -I analysis/opus_effort.py --check   #    the earlier Opus 5.5 runs: results/opus-5.5-effort/summary.json
 python -I leaderboard-format/validate_entry.py              # 4. Fable 5.2 leaderboard files
 python -I leaderboard-format/validate_entry.py --run opus   #    Opus 5.5 leaderboard files
 python -I figures/make_figures.py       # needs matplotlib
@@ -21,10 +22,11 @@ python -I analysis/paradigm_bounds.py   # needs numpy and scipy
 | `summarise.py` | `results/` or `results/opus-5.5-max/` | headline aggregates; writes `results/summary.json` (`--run opus`: `results/opus-5.5-max/summary.json`; `--check` compares instead) |
 | `fable_vs_paper.py` | `results/`, fetched data | Fable 5.2: leaderboard metrics, per-task McNemar comparisons, slices, failure profile, cost, sensitivity; writes `out/chart-leaderboard.csv` and, into the git-ignored `out/local/`, tables that contain other configurations' per-task results |
 | `opus_vs_paper.py` | `results/opus-5.5-max/`, `results/`, fetched data | Opus 5.5: Pass@1 with interval, subsets, time-limit sensitivity, per-task McNemar against Fable 5.2 and the seven configurations with per-task results; prints only |
+| `opus_effort.py` | `results/opus-5.5-effort/`, `results/opus-5.5-max/`, `results/` | the earlier Opus 5.5 runs: Pass@1 of the first medium run per task, run-to-run agreement at medium, the 18-task effort ladder, and comparisons with the two scored runs; writes `results/opus-5.5-effort/summary.json` (`--check` compares instead) |
 | `paradigm_bounds.py` | fetched data, scipy | integer program: range of Fable 5.2's Issue/Expert/Engineering counts consistent with everything published; output committed as `out/paradigm_bounds-output.txt` |
 | `extract_paper_domains.py` | the paper PDF, `pdftotext` | rebuilds `data/paper-domains.csv` from Table 5 of the paper |
 | `tool_mix.py` | **the private trajectories** | Fable 5.2: behaviour counts per run; the committed output is `out/tool-mix.csv`. `--summary` prints medians from that file without the trajectories |
-| `contamination_scan.py` | **the private agent records** | count-only network-attempt scan (`docs/network-scan.md`, `docs/network-scan-opus-5.5-max.md`); the committed outputs are `out/contamination-scan.csv` and `out/opus-5.5-max/contamination-scan.csv`. `--selftest` runs without any data |
+| `contamination_scan.py` | **the private agent records** | count-only network-attempt scan (`docs/network-scan.md`, `docs/network-scan-opus-5.5-max.md`, `docs/network-scan-opus-5.5-effort.md`); the committed outputs are `out/contamination-scan.csv`, `out/opus-5.5-max/contamination-scan.csv` and `out/opus-5.5-effort/contamination-scan.csv` (the last with `--run-ids`, several job folders). `--selftest` runs without any data |
 
 ## Committed outputs (`out/`)
 
@@ -33,6 +35,7 @@ python -I analysis/paradigm_bounds.py   # needs numpy and scipy
 | `chart-leaderboard.csv` | 18 rows: the 17 published configurations (overall Pass@1, Hard70 Pass@1 where the leaderboard has one, tokens per task), quoted with their source, plus Claude Fable 5.2 (xhigh). Opus 5.5 is not in this file; `figures/make_figures.py` reads it from `results/opus-5.5-max/per-task.csv` |
 | `contamination-scan.csv` | Fable 5.2, per run: task ID, counts by category, reason codes |
 | `opus-5.5-max/contamination-scan.csv` | Opus 5.5, the same columns |
+| `opus-5.5-effort/contamination-scan.csv` | the earlier Opus 5.5 runs, the same columns plus `run_id` |
 | `tool-mix.csv` | Fable 5.2, per run: task ID, pass, behaviour counts and timings |
 | `paradigm_bounds-output.txt` | console output of `paradigm_bounds.py` |
 

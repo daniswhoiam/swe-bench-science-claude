@@ -8,7 +8,7 @@ The result data, provenance records, figures and documentation in this repositor
 
 This covers:
 
-- `results/` (`per-task.csv`, `runs.jsonl`, `summary.json`, `artefact-checksums.csv`, `README.md`)
+- `results/` and its subfolders (`per-task.csv`, `per-run.csv`, `runs.jsonl`, `summary.json`, `artefact-checksums.csv`, `README.md`)
 - `leaderboard-format/*.json` and `leaderboard-format/README.md`
 - `provenance/`
 - `docs/`, `figures/*.png`, `analysis/out/`, `analysis/*.md`

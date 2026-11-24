@@ -13,13 +13,15 @@ Conventions:
 """
 from __future__ import annotations
 
+import csv
 import json
 import sys
 from collections import Counter
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from common import ALL, HARD70, OPUS_RESULTS, RESULTS, load_fable, load_opus, load_task_meta, mean, median, wilson  # noqa: E402
+from common import (ALL, HARD70, OPUS_RESULTS, RESULTS, list_cost, load_fable, load_opus, load_task_meta, mean,  # noqa: E402
+                    median, wilson)
 
 RUNS = {
     "fable": dict(results=RESULTS, load=load_fable, model="anthropic/claude-fable-5-2", effort="xhigh"),
@@ -52,6 +54,20 @@ def build(run: str = "fable") -> dict:
     timeouts = [t for t in ALL if fab[t]["timeout"]]
     no_timeout_pass = sum(1 for t in passed if not fab[t]["timeout"])
     costs = [f["cost"] for f in fab.values() if f["cost"] is not None]
+    # list_cost_usd must follow from the published token totals at list prices (check, not trust)
+    rows = {r["task_id"]: r for r in csv.DictReader((cfg["results"] / "per-task.csv").open())}
+    cc_costs = []
+    for rec in runs:
+        row = rows[rec["task"]]
+        mu = (rec["usage"]["claude_code"] or {}).get("model_usage") or {}
+        if not mu:
+            assert row["list_cost_usd"] == "" and row["claude_code_cost_usd"] == "", rec["task"]
+            continue
+        (model, u), = mu.items()
+        assert abs(list_cost(model, u, float(row["cache_write_1h_share"])) - float(row["list_cost_usd"])) < 1e-3, rec["task"]
+        assert row["claude_code_cost_basis"] == u.get("costBasis") and abs(u["costUSD"] - float(row["claude_code_cost_usd"])) < 1e-3
+        cc_costs.append(u["costUSD"])
+    compactions = [int(rows[t]["context_compactions"]) for t in ALL]
     web = [mu.get("webSearchRequests") for r in runs
            for mu in ((r["usage"]["claude_code"] or {}).get("model_usage") or {}).values()]
     models_used = sorted({m for r in runs for m in ((r["usage"]["claude_code"] or {}).get("model_usage") or {})})
@@ -95,7 +111,11 @@ def build(run: str = "fable") -> dict:
             "thinking_mean_thousands": round(mean([f["thinking_tokens"] for f in fab.values()]) / 1e3),
         },
         "list_cost_usd": {"runs_reporting": len(costs), "total": round(sum(costs)),
-                          "mean_per_run": r2(mean(costs))},
+                          "mean_per_run": r2(mean(costs)), "per_task_solved": r2(sum(costs) / k)},
+        "claude_code_cost_estimate_usd": {"total": round(sum(cc_costs)),
+                                          "cost_basis": sorted({rows[t]["claude_code_cost_basis"] for t in ALL} - {""})},
+        "context_compactions": {"runs_with_any": sum(1 for c in compactions if c), "median": median(compactions),
+                                "max": max(compactions)},
         "integrity": {
             "agent_network_isolated_allowlist": sum(r["network"]["agent"] == "isolated-allowlist" for r in runs),
             "verifier_network_none": sum(r["network"]["verifier"] == "none" for r in runs),

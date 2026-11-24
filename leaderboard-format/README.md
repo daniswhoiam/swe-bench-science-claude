@@ -49,7 +49,7 @@ Opus 5.5:
 
 - Every task has a verifier result; no verifier timeout.
 - **001, 014, 033, 040** hit the 90-minute agent limit; 001 passes. Scored as failures instead, Pass@1 would be 70/119 = 58.82%.
-- **037 and 081**: background subagents made the session emit several result events, so Pier's token counts (used here, as for every task) and its cost are lower than Claude Code's final session totals. `results/opus-5.5-max/per-task.csv` reports Claude Code's total as the list cost.
+- **037 and 081**: background subagents made the session emit several result events, so Pier's token counts (used here, as for every task) and its cost are lower than Claude Code's final session totals. The list cost in `results/opus-5.5-max/per-task.csv` is computed from Claude Code's totals.
 - `hard70-entry.json` lists all 71 passed tasks (24 of them in Hard70).
 
 Run `python -I leaderboard-format/validate_entry.py` (Fable 5.2) and `python -I leaderboard-format/validate_entry.py --run opus` (Opus 5.5) to check all of the above.

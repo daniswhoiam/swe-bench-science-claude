@@ -14,7 +14,7 @@ Only count-level data is used: the verifier's pass counts per task, never per-te
 2. **Fable leads on both halves of the benchmark.** On the leaderboard's Hard70 subset Fable passes 29/70 (41.4%), against 21/70 (30.0%) for Astra and 15/70 (21.4%) for Opus 5. On the other 49 tasks it passes 46/49 (93.9%), against 39 and 42. The lead over Astra is about the same size on both (+11.4 and +14.3 points); against Opus 5 it is concentrated in Hard70.
 3. **Fable solves 6 of the 35 tasks that none of the seven configurations with per-task results solves** (036, 065, 068, 090, 097, 113). Only one task that at least five of those seven solve is a Fable failure: 115, where Fable passed 93 of 97 checks.
 4. **Against GPT-6 Astra, the lead comes from finishing tasks, not from more partial credit.** The mean share of private checks passed is close (Private score 85.3% against 83.2%). Of the 20 tasks only Fable solves, Astra missed exactly one check on 12 and two checks on 4. Astra has 22 one-check misses, Fable 11, and Astra solves none of Fable's 11.
-5. **Token use.** Fable uses fewer input tokens per task than Opus 5 (max) and more output tokens: 5.3M against 7.0M input (94% of Fable's are cache reads), 0.166M against 0.110M output. Claude Code's list-price estimate is $4.21 per task. Over the 18 configurations, Pass@1 is not positively related to token use (Spearman rank correlation −0.32 with input tokens, −0.21 with output tokens).
+5. **Token use.** Fable uses fewer input tokens per task than Opus 5 (max) and more output tokens: 5.3M against 7.0M input (94% of Fable's are cache reads), 0.166M against 0.110M output. At list prices this is $13.74 per task (corrected in v1.2: Claude Code's own estimate, $4.21, has no price basis for Fable 5.2; see the README, "Claude Code version"). Over the 18 configurations, Pass@1 is not positively related to token use (Spearman rank correlation −0.32 with input tokens, −0.21 with output tokens).
 6. **Fable's failures look like missing work, not broken code.** 43 of its 44 failures pass the public reproduction, and 41 of the 44 are Hard70 tasks. Passing and failing runs show the same effort (median 62.5 against 63 turns, 34 against 37 minutes, 23 against 20.5 Python executions).
 
 ---
@@ -180,9 +180,9 @@ Over all 119 tasks, the mean share of private checks passed is: Fable 85.3%, Ast
 | Peak context | 159k | 164k |
 | Patch size | 99 kB | 14 kB |
 | Files per patch | – | 2 |
-| List cost per task (116 runs that report it) | $4.21 | $3.96 |
+| List cost per task (116 runs that report it) | $13.74 | $13.29 |
 
-Cache reads are 94% of all input tokens. Total list cost is $488 for the 116 runs that report it; the three time-limit runs end without Claude Code's final report and so report no cost, turns or thinking tokens. One run spawned a subagent, and none used TodoWrite.
+Cache reads are 94% of all input tokens. Total list cost is $1,594 for the 116 runs that report it (Claude Code's own estimate: $488, without a price basis for this model); the three time-limit runs end without Claude Code's final report and so report no cost, turns or thinking tokens. One run spawned a subagent, and none used TodoWrite.
 
 **Tool mix** (`out/tool-mix.csv`, all 119 runs; medians; command text matched by regular expressions and never printed):
 

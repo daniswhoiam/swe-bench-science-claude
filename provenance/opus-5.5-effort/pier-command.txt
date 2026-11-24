@@ -1,0 +1,66 @@
+# The per-run Pier commands of the earlier Opus 5.5 runs, one template per effort level; identical for every
+# run of that level except <NNN> (task id) and <seed>. Reconstructed from each job's lock.json "invocation".
+# <run-root> = the project directory on the author's Mac; <env-file> = the credential file (outside the
+# project; holds the Claude credential); <jobs-dir> = the folder of the batch; <tasks-dir> = tasks-selected-all
+# (some batches used tasks-selected, a link to the same folder). No --agent-env: Claude Code's defaults apply.
+# Environment: DOCKER_DEFAULT_PLATFORM=linux/amd64 (Apple Silicon: the images run under emulation).
+
+# medium
+<run-root>/.venv/bin/pier run \
+  --path <run-root>/swe-bench-science/<tasks-dir>/task_<NNN> \
+  --env docker \
+  --environment-import-path harness.environment:MirroredScienceBenchDocker \
+  --environment-kwarg inference_urls=[] \
+  --agent claude-code \
+  --agent-kwarg version=2.1.293 \
+  --agent-kwarg reasoning_effort=medium \
+  --model anthropic/claude-opus-5-5 \
+  --env-file <env-file> \
+  --n-concurrent 1 \
+  --n-attempts 1 \
+  --max-retries 0 \
+  --no-force-build \
+  --no-delete \
+  --yes \
+  --jobs-dir <jobs-dir> \
+  --job-name A-<NNN>-s<seed>
+
+# high
+<run-root>/.venv/bin/pier run \
+  --path <run-root>/swe-bench-science/<tasks-dir>/task_<NNN> \
+  --env docker \
+  --environment-import-path harness.environment:MirroredScienceBenchDocker \
+  --environment-kwarg inference_urls=[] \
+  --agent claude-code \
+  --agent-kwarg version=2.1.293 \
+  --agent-kwarg reasoning_effort=high \
+  --model anthropic/claude-opus-5-5 \
+  --env-file <env-file> \
+  --n-concurrent 1 \
+  --n-attempts 1 \
+  --max-retries 0 \
+  --no-force-build \
+  --no-delete \
+  --yes \
+  --jobs-dir <jobs-dir> \
+  --job-name AH-<NNN>-s<seed>
+
+# max
+<run-root>/.venv/bin/pier run \
+  --path <run-root>/swe-bench-science/<tasks-dir>/task_<NNN> \
+  --env docker \
+  --environment-import-path harness.environment:MirroredScienceBenchDocker \
+  --environment-kwarg inference_urls=[] \
+  --agent claude-code \
+  --agent-kwarg version=2.1.293 \
+  --agent-kwarg reasoning_effort=max \
+  --model anthropic/claude-opus-5-5 \
+  --env-file <env-file> \
+  --n-concurrent 1 \
+  --n-attempts 1 \
+  --max-retries 0 \
+  --no-force-build \
+  --no-delete \
+  --yes \
+  --jobs-dir <jobs-dir> \
+  --job-name AX-<NNN>-s<seed>

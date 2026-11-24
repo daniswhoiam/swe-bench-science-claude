@@ -91,8 +91,20 @@
  },
  "list_cost_usd": {
   "runs_reporting": 116,
+  "total": 1594,
+  "mean_per_run": 13.74,
+  "per_task_solved": 21.25
+ },
+ "claude_code_cost_estimate_usd": {
   "total": 488,
-  "mean_per_run": 4.21
+  "cost_basis": [
+   "unknown"
+  ]
+ },
+ "context_compactions": {
+  "runs_with_any": 98,
+  "median": 2,
+  "max": 6
  },
  "integrity": {
   "agent_network_isolated_allowlist": 119,
