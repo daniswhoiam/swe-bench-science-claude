@@ -1,16 +1,16 @@
 # Network and download attempts in the agent records: Claude Opus 5.5 (max)
 
-A count-only scan of the agent records of all 119 scored Opus 5.5 runs, made on 2026-11-24 with the patterns of the Fable 5.2 scan, unchanged (method, pattern list and limits: [`network-scan.md`](network-scan.md)). Script: [`analysis/contamination_scan.py`](../analysis/contamination_scan.py). Per-run counts: [`analysis/out/opus-5.5-max/contamination-scan.csv`](../analysis/out/opus-5.5-max/contamination-scan.csv) (task IDs, counts and reason codes only).
+A count-only scan of the agent records of all 119 scored Opus 5.5 runs, made on 2026-11-24 with the same fixed patterns as the Fable 5.2 scan (method, pattern list and limits: [`network-scan.md`](network-scan.md)). Script: [`analysis/contamination_scan.py`](../analysis/contamination_scan.py). Per-run counts: [`analysis/out/opus-5.5-max/contamination-scan.csv`](../analysis/out/opus-5.5-max/contamination-scan.csv) (task IDs, counts and reason codes only).
 
 ## Summary
 
-The agent never used its web-fetch or web-search tools, though both were available in every run. It never ran curl, wget, pip or uv installs, ssh or a system package manager. It tried `pip download` 12 times in 12 runs; every one of those attempts returned a blocked-network error. One inline network call with a PyPI URL was also blocked. The one `git clone` cloned the agent's own working directory to a temporary folder and made no network request. No result of any network attempt shows a successful download. As for the Fable run, the flagged runs are listed below by task ID and counts so that the maintainers can inspect them; 8 of them were scanned without being read.
+The agent never used its web-fetch or web-search tools, though both were available in every run. It never ran curl, wget, pip or uv installs, ssh or a system package manager. It tried `pip download` 12 times in 12 runs; every one of those attempts returned a blocked-network error. One inline network call with a PyPI URL was also blocked. The one `git clone` cloned the agent's own working directory to a temporary folder and made no network request. No result of any network attempt shows a successful download. As in the Fable 5.2 scan, the flagged runs are listed below by task ID and counts so that the maintainers can inspect them; 8 of them were scanned without being read.
 
 ## What was scanned
 
 - **Scope.** The 119 scored runs. No session was set aside in this pass, so nothing else exists to cover.
 - **Record.** Per run, only the agent's own session record (`agent/claude-code.txt`, Claude Code's stream-JSON). All 119 runs had it. Nothing under `verifier/` or a task's `tests/` was opened.
-- **Patterns, units, flags:** identical to the Fable scan. The script's only change is that it accepts `OX-<task>-s1` job folders; run on the Fable job folders, it reproduces `analysis/out/contamination-scan.csv` exactly. The 151 self-checks passed before the scan.
+- **Patterns, units, flags:** identical to the Fable scan. The script accepts both `FXH-<task>-s1` and `OX-<task>-s1` job folders; run on the Fable 5.2 folders, it reproduces `analysis/out/contamination-scan.csv` exactly. The 151 self-checks passed before the scan.
 - **Reading.** For most runs only counts and task IDs left the script. For the rest, the matched lines were read to describe what happened (summarised below without task IDs).
 
 ## Totals over the 119 runs

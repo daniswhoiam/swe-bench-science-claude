@@ -1,6 +1,6 @@
 # Run log: Claude Opus 5.5, max effort
 
-A dated timeline of the Opus pass, rewritten from the author's lab notes. All times are UTC (the server ran on UTC+1). Machine names, account details and notes about other experiments are left out.
+A dated timeline of the Opus 5.5 pass, rewritten from the author's lab notes. All times are UTC (the server ran on UTC+1). Machine names, account details and notes about other experiments are left out.
 
 ## Before the pass (23 Nov 2026)
 

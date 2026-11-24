@@ -1,9 +1,8 @@
-"""Build the three figures with matplotlib (PNG at 2x).
+"""Build the two figures with matplotlib (PNG at 2x).
 
 fig1-leaderboard: Pass@1 of all 17 leaderboard configurations plus the two runs in this repository (ranked bars,
                   Fable 5.2 and Opus 5.5 highlighted).
-fig2-subsets:     Fable 5.2, GPT-6 Astra and Claude Opus 5 on all 119 tasks, Hard70 and the other 49 (v1.0 figure).
-fig3-opus-subsets: Opus 5.5, Fable 5.2, GPT-6 Astra and Claude Opus 5 on the same three subsets.
+fig2-subsets:     Fable 5.2, Opus 5.5, GPT-6 Astra and Claude Opus 5 on all 119 tasks, Hard70 and the other 49.
 
 Data: results/per-task.csv (Fable 5.2), results/opus-5.5-max/per-task.csv (Opus 5.5) and the leaderboard's own data, downloaded by analysis/fetch_inputs.py into
 analysis/data/leaderboard/ (benchmark.json: the 17 configurations; task-matrix.json: per-task results;
@@ -36,7 +35,7 @@ INK, INK2, MUTED = "#0b0b0b", "#52514e", "#898781"
 GRID, AXIS = "#e1e0d9", "#c3c2b7"
 NEUTRAL_BAR = "#c9c7bf"
 BLUE, ORANGE, AQUA = "#2a78d6", "#eb6834", "#1baf7a"
-VIOLET = "#7b4fd0"  # fig3 only: Opus 5.5 (contrast 5.6:1 on white; every bar is labelled)
+VIOLET = "#7b4fd0"  # fig2 only: Opus 5.5 (contrast 5.6:1 on white; every bar is labelled)
 FONTS = ["Helvetica Neue", "Helvetica", "Arial", "DejaVu Sans"]
 W = 728            # canvas width in CSS px
 PX_PER_IN = 100    # 1 CSS px = 0.01 in
@@ -124,15 +123,15 @@ def fig1():
         name = r["configuration"].replace("Claude-Opus-5", "Claude Opus 5")
         harness = r["harness"].replace(" 2.1.293", "")
         effort = r["effort"] if r["effort"] not in ("", "default") else ""
-        is_fable = r["configuration"] in ("Claude Fable 5.2", "Claude Opus 5.5")  # runs in this repository
+        is_ours = r["configuration"] in ("Claude Fable 5.2", "Claude Opus 5.5")  # runs in this repository
         label = f"{name} · {harness}" + (f" · {effort}" if effort else "")
         cy = top + i * row_h + row_h / 2
-        c.text(pad + label_w, cy + 4.5, label, 12.5, INK if is_fable else INK2, "right", "bold" if is_fable else "normal")
+        c.text(pad + label_w, cy + 4.5, label, 12.5, INK if is_ours else INK2, "right", "bold" if is_ours else "normal")
         v = float(r["overall_pass_at_1_pct"])
-        c.bar(x0, cy - bar_h / 2, sx(v) - x0, bar_h, BLUE if is_fable else NEUTRAL_BAR)
+        c.bar(x0, cy - bar_h / 2, sx(v) - x0, bar_h, BLUE if is_ours else NEUTRAL_BAR)
         if r["configuration"] in labelled:
-            c.text(sx(v) + 6, cy + 4.5, f"{v:.1f}%", 12.5, INK if is_fable else INK2, "left",
-                   "bold" if is_fable else "normal")
+            c.text(sx(v) + 6, cy + 4.5, f"{v:.1f}%", 12.5, INK if is_ours else INK2, "left",
+                   "bold" if is_ours else "normal")
     c.text(pad, height - 26, "Sources: swescience.github.io leaderboard (17 configurations); Fable 5.2 and Opus 5.5 rows: this repository,", 11, MUTED)
     c.text(pad, height - 11, "not official leaderboard entries. Settings differ (effort, harness version, hardware); see the README.", 11, MUTED)
     c.save("fig1-leaderboard")
@@ -141,75 +140,27 @@ def fig1():
 
 def fig2():
     fable = {r["task_id"]: r["pass_at_1"] == "1" for r in PER_TASK}
+    opus = {r["task_id"]: r["pass_at_1"] == "1" for r in OPUS_TASK}
     matrix = json.load(open(LB / "task-matrix.json"))
     lb = {t["publishedTaskId"]: t["results"] for t in matrix["tasks"]}
     solved = {
         "Claude Fable 5.2": lambda t: fable[t],
+        "Claude Opus 5.5": lambda t: opus[t],
         "GPT-6 Astra": lambda t: lb[t]["gpt-6-astra"]["reward"] == 1,
         "Claude Opus 5": lambda t: lb[t]["opus"]["reward"] == 1,
     }
-    colors = {"Claude Fable 5.2": BLUE, "GPT-6 Astra": ORANGE, "Claude Opus 5": AQUA}
+    ours = {"Claude Fable 5.2", "Claude Opus 5.5"}  # the runs in this repository
+    colors = {"Claude Fable 5.2": BLUE, "Claude Opus 5.5": VIOLET, "GPT-6 Astra": ORANGE, "Claude Opus 5": AQUA}
+    legend = {"Claude Fable 5.2": "Claude Fable 5.2 \u00b7 xhigh (this repository)",
+              "Claude Opus 5.5": "Claude Opus 5.5 \u00b7 max (this repository)",
+              "GPT-6 Astra": "GPT-6 Astra \u00b7 max (leaderboard)", "Claude Opus 5": "Claude Opus 5 \u00b7 max (leaderboard)"}
     groups = [("All 119 tasks", sorted(fable)), ("Hard70 (the 70 hardest)", sorted(HARD70)),
               ("Other 49 tasks", sorted(set(fable) - HARD70))]
     data = {g: {m: (sum(f(t) for t in ts), len(ts)) for m, f in solved.items()} for g, ts in groups}
-    assert data["All 119 tasks"]["Claude Fable 5.2"] == (75, 119)
+    assert data["All 119 tasks"]["Claude Fable 5.2"] == (75, 119) and data["All 119 tasks"]["Claude Opus 5.5"] == (71, 119)
     assert data["All 119 tasks"]["GPT-6 Astra"][0] == 60 and data["All 119 tasks"]["Claude Opus 5"][0] == 57
-
-    pad, label_w, plot_r = 24, 168, W - 112
-    top, bar_h, gap, group_gap = 120, 18, 2, 22
-    x0 = pad + label_w + 12
-    sx = lambda v: x0 + (plot_r - x0) * v / 100.0
-    group_h = 3 * bar_h + 2 * gap
-    plot_bottom = top + len(groups) * group_h + (len(groups) - 1) * group_gap + 6
-    height = plot_bottom + 30 + 46
-    c = Canvas(height)
-    c.text(pad, 34, "Fable 5.2 leads on the hardest tasks and on the rest", 19, INK, weight="bold")
-    c.text(pad, 56, "Pass@1 (share of tasks fully solved); tasks solved in brackets. Hard70 is the leaderboard's", 13, INK2)
-    c.text(pad, 74, "subset of the 70 tasks with the lowest average pass rate across 12 earlier models.", 13, INK2)
-    lx = pad
-    for m in solved:
-        c.swatch(lx, 92, 12, colors[m])
-        c.text(lx + 18, 102.5, m + (" (this run)" if m == "Claude Fable 5.2" else ""), 12.5, INK2)
-        lx += 198 if m == "Claude Fable 5.2" else 118
-    for v in range(0, 101, 20):
-        c.vline(sx(v), top - 6, plot_bottom, AXIS if v == 0 else GRID)
-        c.text(sx(v), plot_bottom + 18, f"{v}%", 12, MUTED, "center")
-    y = top
-    for g, _ in groups:
-        c.text(pad + label_w, y + group_h / 2 + 4.5, g, 13, INK, "right", "bold")
-        for m in solved:
-            k, n = data[g][m]
-            v = 100.0 * k / n
-            c.bar(x0, y, sx(v) - x0, bar_h, colors[m])
-            fable_row = m == "Claude Fable 5.2"
-            c.text(sx(v) + 6, y + bar_h / 2 + 4.5, f"{v:.1f}% ({k})", 12.5, INK if fable_row else INK2, "left",
-                   "bold" if fable_row else "normal")
-            y += bar_h + gap
-        y += group_gap - gap
-    c.text(pad, height - 26, "Sources: per-task results on swescience.github.io (9 Oct 2026); Fable 5.2: this run. Opus 5 was one of the", 11, MUTED)
-    c.text(pad, height - 11, "12 models used to select Hard70, which lowers its score there by construction; GPT-6 Astra and Fable were not.", 11, MUTED)
-    c.save("fig2-subsets")
-    return height, data
-
-
-def fig3():
-    opus = {r["task_id"]: r["pass_at_1"] == "1" for r in OPUS_TASK}
-    fable = {r["task_id"]: r["pass_at_1"] == "1" for r in PER_TASK}
-    matrix = json.load(open(LB / "task-matrix.json"))
-    lb = {t["publishedTaskId"]: t["results"] for t in matrix["tasks"]}
-    solved = {
-        "Claude Opus 5.5": lambda t: opus[t],
-        "Claude Fable 5.2": lambda t: fable[t],
-        "GPT-6 Astra": lambda t: lb[t]["gpt-6-astra"]["reward"] == 1,
-        "Claude Opus 5": lambda t: lb[t]["opus"]["reward"] == 1,
-    }
-    colors = {"Claude Opus 5.5": VIOLET, "Claude Fable 5.2": BLUE, "GPT-6 Astra": ORANGE, "Claude Opus 5": AQUA}
-    legend = {"Claude Opus 5.5": "Claude Opus 5.5, max (this run)", "Claude Fable 5.2": "Claude Fable 5.2, xhigh (this repository)",
-              "GPT-6 Astra": "GPT-6 Astra", "Claude Opus 5": "Claude Opus 5"}
-    groups = [("All 119 tasks", sorted(opus)), ("Hard70 (the 70 hardest)", sorted(HARD70)),
-              ("Other 49 tasks", sorted(set(opus) - HARD70))]
-    data = {g: {m: (sum(f(t) for t in ts), len(ts)) for m, f in solved.items()} for g, ts in groups}
-    assert data["All 119 tasks"]["Claude Opus 5.5"] == (71, 119) and data["All 119 tasks"]["Claude Fable 5.2"] == (75, 119)
+    for g, _ in groups:  # the title's claim: both runs above both leaderboard configurations on every subset
+        assert min(data[g][m][0] for m in ours) > max(data[g][m][0] for m in solved if m not in ours), g
 
     pad, label_w, plot_r = 24, 168, W - 112
     top, bar_h, gap, group_gap = 138, 16, 2, 22
@@ -219,7 +170,7 @@ def fig3():
     plot_bottom = top + len(groups) * group_h + (len(groups) - 1) * group_gap + 6
     height = plot_bottom + 30 + 46
     c = Canvas(height)
-    c.text(pad, 34, "Opus 5.5 at max: ahead of the leaderboard, behind Fable 5.2 on Hard70", 19, INK, weight="bold")
+    c.text(pad, 34, "Both runs lead the leaderboard on every subset", 19, INK, weight="bold")
     c.text(pad, 56, "Pass@1 (share of tasks fully solved); tasks solved in brackets. Hard70 is the leaderboard's", 13, INK2)
     c.text(pad, 74, "subset of the 70 tasks with the lowest average pass rate across 12 earlier models.", 13, INK2)
     for i, m in enumerate(solved):
@@ -236,23 +187,21 @@ def fig3():
             k, n = data[g][m]
             v = 100.0 * k / n
             c.bar(x0, y, sx(v) - x0, bar_h, colors[m])
-            own = m == "Claude Opus 5.5"
+            own = m in ours
             c.text(sx(v) + 6, y + bar_h / 2 + 4.5, f"{v:.1f}% ({k})", 12, INK if own else INK2, "left",
                    "bold" if own else "normal")
             y += bar_h + gap
         y += group_gap - gap
-    c.text(pad, height - 26, "Sources: per-task results on swescience.github.io (9 Oct 2026); Opus 5.5 and Fable 5.2: this repository.", 11, MUTED)
-    c.text(pad, height - 11, "Opus 5 was one of the 12 models used to select Hard70, which lowers its score there by construction.", 11, MUTED)
-    c.save("fig3-opus-subsets")
+    c.text(pad, height - 26, "Sources: per-task results on swescience.github.io (9 Oct 2026); Fable 5.2 and Opus 5.5: this repository.", 11, MUTED)
+    c.text(pad, height - 11, "Opus 5 was one of the 12 models used to select Hard70, which lowers its score there by construction; Astra and Fable 5.2 were not.", 11, MUTED)
+    c.save("fig2-subsets")
     return height, data
 
 
 if __name__ == "__main__":
     h1 = fig1()
     h2, data2 = fig2()
-    h3, data3 = fig3()
     print("fig1-leaderboard", W * SCALE, h1 * SCALE)
     print("fig2-subsets", W * SCALE, h2 * SCALE)
-    print("fig3-opus-subsets", W * SCALE, h3 * SCALE)
-    for g, d in data3.items():
+    for g, d in data2.items():
         print(g, {m: f"{k}/{n}" for m, (k, n) in d.items()})

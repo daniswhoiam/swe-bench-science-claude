@@ -1,6 +1,6 @@
-# Run log
+# Run log: Claude Fable 5.2, xhigh effort
 
-A dated timeline of the Fable pass, rewritten from the author's lab notes. All times are UTC (the servers ran on UTC+1). Machine names, account details and notes about other experiments are left out.
+A dated timeline of the Fable 5.2 pass, rewritten from the author's lab notes. All times are UTC (the servers ran on UTC+1). Machine names, account details and notes about other experiments are left out.
 
 ## Before the pass (12-13 Nov 2026)
 

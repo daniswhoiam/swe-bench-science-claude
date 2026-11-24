@@ -1,6 +1,6 @@
-# Network and download attempts in the agent records
+# Network and download attempts in the agent records: Claude Fable 5.2 (xhigh)
 
-A count-only scan of the agent records of all 119 scored runs, made on 2026-11-17 with patterns fixed before scanning. Script: [`analysis/contamination_scan.py`](../analysis/contamination_scan.py). Per-run counts: [`analysis/out/contamination-scan.csv`](../analysis/out/contamination-scan.csv) (task IDs, counts and reason codes only).
+A count-only scan of the agent records of all 119 scored Fable 5.2 runs, made on 2026-11-17 with patterns fixed before scanning. Script: [`analysis/contamination_scan.py`](../analysis/contamination_scan.py). Per-run counts: [`analysis/out/contamination-scan.csv`](../analysis/out/contamination-scan.csv) (task IDs, counts and reason codes only).
 
 ## Summary
 

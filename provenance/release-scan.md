@@ -3,7 +3,7 @@
 Result of the private pre-release scanner over every file of this repository's tree, this report included (as written by the previous scan).
 The scanner and its list of personal strings are kept outside the repository, so that the list is not published.
 
-**Result: 0 findings** in 67 files (2,323,666 bytes).
+**Result: 0 findings** in 66 files (2,210,295 bytes).
 
 | Check | Rule | Findings |
 |---|---|---|
@@ -19,7 +19,7 @@ The scanner and its list of personal strings are kept outside the repository, so
 | `internal-router` | mentions of the model-routing service used during development | 0 |
 | `internal-experiments` | names of the author's other experiments, task-split files and project-internal paths | 0 |
 | `internal-session` | Claude Code session links and ids | 0 |
-| `other-model` | mentions of Claude Opus 5.5 outside the files of the published Opus 5.5 max run (v1.1); data from the author's other Opus 5.5 experiments may not appear | 0 |
+| `other-model` | mentions of Claude Opus 5.5 outside the files that report the Opus 5.5 max run; data from the author's other Opus 5.5 experiments may not appear | 0 |
 | `limit-text` | usage-limit message text and subscription plan names | 0 |
 | `hidden-test-names` | names of verifier output files, outside the statement that they were never opened | 0 |
 | `personal` | personal identifiers: names, account, machine and server identifiers (16 patterns from a local, unpublished list; case-insensitive) | 0 |
@@ -33,36 +33,36 @@ Allowed matches (expected, reviewed):
 
 - `email` in `analysis/contamination_scan.py` (2): synthetic self-test URLs (user-name syntax in git URLs)
 - `hidden-test-names` in `README.md` (3): statement that these files were never opened
-- `other-model` in `CITATION.cff` (1): file of the published Opus 5.5 max run (v1.1)
-- `other-model` in `LICENSE-DATA.md` (1): file of the published Opus 5.5 max run (v1.1)
-- `other-model` in `README.md` (37): file of the published Opus 5.5 max run (v1.1)
-- `other-model` in `analysis/README.md` (10): file of the published Opus 5.5 max run (v1.1)
-- `other-model` in `analysis/common.py` (5): file of the published Opus 5.5 max run (v1.1)
-- `other-model` in `analysis/contamination_scan.py` (2): file of the published Opus 5.5 max run (v1.1)
-- `other-model` in `analysis/opus_vs_paper.py` (9): file of the published Opus 5.5 max run (v1.1)
-- `other-model` in `analysis/summarise.py` (3): file of the published Opus 5.5 max run (v1.1)
-- `other-model` in `docs/network-scan-opus-5.5-max.md` (5): file of the published Opus 5.5 max run (v1.1)
-- `other-model` in `figures/make_figures.py` (19): file of the published Opus 5.5 max run (v1.1)
-- `other-model` in `harness/run_fable.py` (4): file of the published Opus 5.5 max run (v1.1)
-- `other-model` in `leaderboard-format/README.md` (10): file of the published Opus 5.5 max run (v1.1)
-- `other-model` in `leaderboard-format/opus-5.5-max/benchmark-entry.json` (2): file of the published Opus 5.5 max run (v1.1)
-- `other-model` in `leaderboard-format/opus-5.5-max/hard70-entry.json` (1): file of the published Opus 5.5 max run (v1.1)
-- `other-model` in `leaderboard-format/opus-5.5-max/task-matrix-entry.json` (121): file of the published Opus 5.5 max run (v1.1)
-- `other-model` in `leaderboard-format/validate_entry.py` (4): file of the published Opus 5.5 max run (v1.1)
-- `other-model` in `provenance/environment.md` (5): file of the published Opus 5.5 max run (v1.1)
-- `other-model` in `provenance/opus-5.5-max/per-task-provenance.jsonl` (238): file of the published Opus 5.5 max run (v1.1)
-- `other-model` in `provenance/opus-5.5-max/pier-command.txt` (2): file of the published Opus 5.5 max run (v1.1)
-- `other-model` in `provenance/opus-5.5-max/run-log.md` (5): file of the published Opus 5.5 max run (v1.1)
-- `other-model` in `provenance/release-scan.md` (38): file of the published Opus 5.5 max run (v1.1)
-- `other-model` in `results/README.md` (6): file of the published Opus 5.5 max run (v1.1)
-- `other-model` in `results/opus-5.5-max/per-task.csv` (119): file of the published Opus 5.5 max run (v1.1)
-- `other-model` in `results/opus-5.5-max/runs.jsonl` (468): file of the published Opus 5.5 max run (v1.1)
-- `other-model` in `results/opus-5.5-max/summary.json` (2): file of the published Opus 5.5 max run (v1.1)
+- `other-model` in `CITATION.cff` (1): a file that reports the Opus 5.5 max run
+- `other-model` in `LICENSE-DATA.md` (1): a file that reports the Opus 5.5 max run
+- `other-model` in `README.md` (50): a file that reports the Opus 5.5 max run
+- `other-model` in `analysis/README.md` (16): a file that reports the Opus 5.5 max run
+- `other-model` in `analysis/common.py` (5): a file that reports the Opus 5.5 max run
+- `other-model` in `analysis/contamination_scan.py` (2): a file that reports the Opus 5.5 max run
+- `other-model` in `analysis/opus_vs_paper.py` (9): a file that reports the Opus 5.5 max run
+- `other-model` in `analysis/summarise.py` (3): a file that reports the Opus 5.5 max run
+- `other-model` in `docs/network-scan-opus-5.5-max.md` (5): a file that reports the Opus 5.5 max run
+- `other-model` in `figures/make_figures.py` (18): a file that reports the Opus 5.5 max run
+- `other-model` in `harness/run_fable.py` (4): a file that reports the Opus 5.5 max run
+- `other-model` in `leaderboard-format/README.md` (10): a file that reports the Opus 5.5 max run
+- `other-model` in `leaderboard-format/opus-5.5-max/benchmark-entry.json` (2): a file that reports the Opus 5.5 max run
+- `other-model` in `leaderboard-format/opus-5.5-max/hard70-entry.json` (1): a file that reports the Opus 5.5 max run
+- `other-model` in `leaderboard-format/opus-5.5-max/task-matrix-entry.json` (121): a file that reports the Opus 5.5 max run
+- `other-model` in `leaderboard-format/validate_entry.py` (4): a file that reports the Opus 5.5 max run
+- `other-model` in `provenance/environment.md` (9): a file that reports the Opus 5.5 max run
+- `other-model` in `provenance/opus-5.5-max/per-task-provenance.jsonl` (238): a file that reports the Opus 5.5 max run
+- `other-model` in `provenance/opus-5.5-max/pier-command.txt` (2): a file that reports the Opus 5.5 max run
+- `other-model` in `provenance/opus-5.5-max/run-log.md` (6): a file that reports the Opus 5.5 max run
+- `other-model` in `provenance/release-scan.md` (39): a file that reports the Opus 5.5 max run
+- `other-model` in `results/README.md` (10): a file that reports the Opus 5.5 max run
+- `other-model` in `results/opus-5.5-max/per-task.csv` (119): a file that reports the Opus 5.5 max run
+- `other-model` in `results/opus-5.5-max/runs.jsonl` (468): a file that reports the Opus 5.5 max run
+- `other-model` in `results/opus-5.5-max/summary.json` (2): a file that reports the Opus 5.5 max run
 - `personal-authorship` in `CITATION.cff` (2): author name/account in an authorship phrase
 - `personal-authorship` in `LICENSE` (1): author name/account in an authorship phrase
 - `personal-authorship` in `LICENSE-DATA.md` (3): author name/account in an authorship phrase
 - `personal-authorship` in `README.md` (2): author name/account in an authorship phrase
-- `personal-authorship` in `leaderboard-format/README.md` (2): author name/account in an authorship phrase
+- `personal-authorship` in `leaderboard-format/README.md` (1): author name/account in an authorship phrase
 - `personal-authorship` in `leaderboard-format/opus-5.5-max/task-matrix-entry.json` (119): author name/account in an authorship phrase
 - `personal-authorship` in `leaderboard-format/task-matrix-entry.json` (119): author name/account in an authorship phrase
 
